@@ -1,0 +1,53 @@
+#author : Shilpa
+
+appdirs==1.4.3
+asn1crypto==0.22.0
+cffi==1.10.0
+click==6.7
+cryptography==1.8.1
+ecdsa==0.13
+Flask==0.12.2
+idna==2.5
+itsdangerous==0.24
+Jinja2==2.9.6
+MarkupSafe==1.0
+packaging==16.8
+pycparser==2.17
+pycrypto==2.6.1
+PyJWT==1.5.0
+pyparsing==2.2.0
+six==1.10.0
+uWSGI==2.0.15
+Werkzeug==0.12.2
+
+Explanation of project structure:
+
+Refer to this url for understanding following structure http://exploreflask.com/en/latest/organizing.html#organization-patterns
+
+run.py ---- This is the file that is invoked to start up a development server. It gets a copy of the app from your package and runs it. This won’t be used in production, but it will see a lot of mileage in development.
+
+requirements.txt ---- This file lists all of the Python packages that your app depends on. You may have separate files for production and development dependencies.
+
+config.py ----	This file contains most of the configuration variables that your app needs.
+
+/instance/config.py ---- This file contains configuration variables that shouldn’t be in version control. This includes things like API keys and database URIs containing passwords. This also contains variables that are specific to this particular instance of your application. For example, you might have DEBUG = False in config.py, but set DEBUG = True in instance/config.py on your local machine for development. Since this file will be read in after config.py, it will override it and set DEBUG = True.
+
+/yourproject/ ---- This is the package that contains your application.
+
+/yourproject/__init__.py ---- This file initializes your application and brings together all of the various components.
+
+/yourproject/views.py ---- This is where the routes are defined. It may be split into a package of its own (yourapp/views/) with related views grouped together into modules.
+
+/yourproject/models.py ---- This is where you define the models of your application. This may be split into several modules in the same way as views.py.
+
+/yourproject/static/ ---- This directory contains the public CSS, JavaScript, images and other files that you want to make public via your app. It is accessible from yourapp.com/static/ by default.
+
+/yourproject/templates/ ---- This is where you’ll put the Jinja2 templates for your app.
+
+
+
+
+ Using Blueprint you can add your routes in the routes directory.To Understand 'Blueprint', refer the following url
+https://stackoverflow.com/questions/15231359/split-python-flask-app-into-multiple-files
+
+
