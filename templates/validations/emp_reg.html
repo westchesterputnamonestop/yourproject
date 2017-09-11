@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+        <html>
+          <head>
+            <title>register</title>
+            <script type="text/javascript">
+              function do_ajax() {
+                var req = new XMLHttpRequest();
+                var result = document.getElementById('result');
+                req.onreadystatechange = function()
+                { 
+                  if(this.readyState == 4 && this.status == 200) {
+                    result.innerHTML = this.responseText;
+                  } else {
+                    result.innerHTML = "waiting...";
+                  }
+                }
+                req.open('POST', '/register' , true);
+                req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                    var data = "FirstName="+ document.getElementById('FirstName').value + "&"+ "LastName="+ document.getElementById
+
+('LastName').value + "&"+ "Title="+ document.getElementById('Title').value + "&"+ "CompanyName="+ document.getElementById('CompanyName').value + 
+
+"&"+ "Address1="+ document.getElementById('Address1').value + "&"+ "Address2="+ document.getElementById('Address2').value + "&"+ "City="+ 
+
+document.getElementById('City').value + "&"+ "State="+ document.getElementById('State').value + "&"+ "Zip="+ document.getElementById('Zip').value 
+
++ "&"+ "Phone="+ document.getElementById('Phone').value + "&"+ "Extension="+ document.getElementById('Extension').value + "&"+ "Phone2="+ 
+
+document.getElementById('Phone2').value + "&"+ "Fax="+ document.getElementById('Fax').value + "&"+ "WebsiteURL="+ document.getElementById
+
+('WebsiteURL').value + "&"+ "EINNumber="+ document.getElementById('EINNumber').value + "&"+ "Sectors[]="+ document.getElementById('Sectors
+
+[]').value + "&"+ "Sectors[]="+ document.getElementById('Sectors[]').value + "&"+ "Sectors[]="+ document.getElementById('Sectors[]').value + "&"+ 
+
+"Sectors[]="+ document.getElementById('Sectors[]').value + "&"+ "Sectors[]="+ document.getElementById('Sectors[]').value + "&"+ "Sectors[]="+ 
+
+document.getElementById('Sectors[]').value + "&"+ "Sectors[]="+ document.getElementById('Sectors[]').value + "&"+ "Sectors[]="+ 
+
+document.getElementById('Sectors[]').value + "&"+ "hospital="+ document.getElementById('hospital').value + "&"+ "hospital="+ 
+
+document.getElementById('hospital').value + "&"+ "hospital="+ document.getElementById('hospital').value + "&"+ "hospital="+ 
+
+document.getElementById('hospital').value + "&"+ "rtwork="+ document.getElementById('rtwork').value + "&"+ "rtwork="+ document.getElementById
+
+('rtwork').value + "&"+ "Email="+ document.getElementById('Email').value + "&"+ "Password="+ document.getElementById('Password').value + "&"+ 
+
+"ConfirmPassword="+ document.getElementById('ConfirmPassword').value + "&"+ "SecurityQuestion1="+ document.getElementById
+
+('SecurityQuestion1').value + "&"+ "SecurityAnswer1="+ document.getElementById('SecurityAnswer1').value + "&"+ "SecurityQuestion2="+ 
+
+document.getElementById('SecurityQuestion2').value + "&"+ "SecurityAnswer2="+ document.getElementById('SecurityAnswer2').value + "&"+ "terms="+ 
+
+document.getElementById('terms').value + "&"+ "sub_button="+ document.getElementById('sub_button').value ;
+                    req.send(data);
+              }
+            </script>
+          </head>
+          <body>
+            <form action="{{url_}}" method="post">
+             <label>FirstName<input type="text" id="FirstName" value=""></label><br/>
+<label>LastName<input type="text" id="LastName" value=""></label><br/>
+<label>Title<input type="text" id="Title" value=""></label><br/>
+<label>CompanyName<input type="text" id="CompanyName"<br>
+ <br> <td align="right">Are you currently unemployed?*</td>
+        <td>
+        	<input type="radio" class="xoText" value="1" name="Unemployed" id="Unemployed" onclick="document.getElementById('Questions').style.display='';" />Yes
+            <input type="radio" class="xoText" value="0" name="Unemployed" id="Unemployed" checked="checked" onclick="document.getElementById('Questions').style.display='none';" />No            
+        </td>
+ 
+
+</label><br/>
+<label>Address1<input type="text" id="Address1" value=""></label><br/>
+<label>Address2<input type="text" id="Address2" value=""></label><br/>
+<label>City<input type="text" id="City" value=""></label><br/>
+
+<label>State <select>
+<option selected="selected">----------- Select State ----------</option>
+                                {% for row in data %}
+                                <option value="{{row }}"> {{ row }}</option>
+                                {% endfor %} 
+
+value=""></label><br/>
+
+<label>Zip<input type="text" id="Zip" value=""></label><br/>
+
+<label>Zip<input type="text" id="Zip" value=""></label><br/>
+
+
+<label>Phone<input type="text" id="Phone" value=""></label><br/>
+
+<label>Extension<input type="text" id="Extension" value=""></label><br/><label>Phone2<input type="text" id="Phone2" 
+
+value=""></label><br/><label>Fax<input type="text" id="Fax" value=""></label><br/><label>WebsiteURL<input type="text" id="WebsiteURL 
+
+value=""></label><br/><label>EINNumber<input type="text" id="EINNumber" value=""></label><br/>   <td align="right" valign="top">Sectors*</td>
+                    <td>
+                    	<table border="0" cellpadding="0" cellspacing="0" class="xoText" width="100%">
+                        	<tr>
+                        	<td>  {% for key,value in dsector %}
+                                        <input type="checkbox" onclick="showRTW()" name="Sectors[]" value="{{key}}" />{{value}}
+                                       {% endfor %}
+                                </td></tr>                		
+                            	</tr>
+                        </table>
+                    </td>
+
+
+
+
+
+<label>Sectors
+
+  
+ {% for c in dsector %}
+  <input type="checkbox" name={{c}} value='dsector'> {{c}}<br>
+  {% endfor %}
+
+
+</label><br/><label>hospital<input type="text" id="hospital" 
+
+value=""></label><br/><label>hospital<input type="text" id="hospital" value=""></label><br/><label>hospital<input type="text" id="hospital" 
+
+value=""></label><br/><label>hospital<input type="text" id="hospital" value=""></label><br/><label>rtwork<input type="text" id="rtwork" 
+
+value=""></label><br/><label>rtwork<input type="text" id="rtwork" value=""></label><br/><label>Email<input type="text" id="Email" 
+
+value=""></label><br/><label>Password<input type="text" id="Password" value=""></label><br/><label>ConfirmPassword<input type="text" 
+
+id="ConfirmPassword" value=""></label><br/><label>SecurityQuestion1<select>
+<option selected="selected">----------- Select SecurityQuestion1 ----------</option>
+                                {% for row in dsecurityquestion1 %}
+                                <option value="{{row }}"> {{ row }}</option>
+                                {% endfor %}
+ 
+
+value=""></label><br/> 
+
+<label>SecurityQuestion2<input type="text" id="SecurityQuestion2" value=""></label><br/>
+
+<label>Securityanswer1<input type="text" id="Securityanswer1" value=""></label><br/>
+<label>SecurityQuestion2<input type="text" id="SecurityQuestion2" value=""></label><br/>
+<label>Securityanswer2<input type="text" id="Securityanswer2" value=""></label><br/>
+<label>terms<input type ="message" rows="10" cols="30" id="terms" value=""></label><br/>
+
+<label>sub_button<input type="text" id="sub_button" 
+
+value=""></label><br/>
+              <button type="button" id="btn-post" onclick="do_ajax();">Click</button>
+              <div id="result"></div>
+            </form>
+          </body>
+        </html>
+
+
+
+

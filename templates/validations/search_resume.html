@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+        <html>
+          <head>
+            <title>view_resumes</title>
+            <script type="text/javascript">
+              function do_ajax() {
+                var req = new XMLHttpRequest();
+                var keyword = document.getElementById('keyword');
+                req.onreadystatechange = function()
+                {
+                  if(this.readyState == 4 && this.status == 200) {
+                    result.innerHTML = this.responseText;
+                  } else {
+                    result.innerHTML = "waiting...";
+                  }
+                }
+
+                req.open('POST', '/view_resume' , true);
+                req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                req.send("selectedkeyword="+  document.getElementById('keyword').value+ "&"+ "Allsectors"+ document.getElementById('Allsectors').value);
+               
+         
+
+}
+            </script>
+			
+			
+			
+			
+			<style>
+
+
+
+</style>
+          </head>
+<body>
+<div class="row" >
+<div class="col-lg-10">
+
+ 	 <p>&nbsp;</p>
+<p class="xoSmall"><a href="http://216.32.220.157:203/" class="xoLink">Home</a>&raquo; <a href="/login?user=employer" class="xoLink">Employer</a> &raquo; Result Resumes</p>
+<p class="xoBig"><h2>Search Resumes</h2></p>
+<p><table cellspacing="0" cellpadding="3" border="0" class="xoSmall"><tbody><tr>
+
+	
+<form action="{{url_for('empsearch_resume',page=1)}}" method="post">
+
+
+<td><input type="text" style="width:200;height:24;" value="{{keyword}}"class="xoText" name="keyword"><br>Keywords</td>
+		<td><select name="allsectors" style="width:200;height:24;" class="xoText" >
+                      
+	<option selected="allsectors">Allsectors</option>
+	
+	
+	{% for row in data %}
+	
+	<option value="{{row }}"> {{ row }}</option>
+	
+	
+	{% endfor %} 
+                         		</select><br>Sector</td>
+		<td><input width="116" type="image" height="33" border="0" alt="" src="https://www.westchesterputnamonestop.com/images/searchresumes.png"><br>&nbsp;</td>
+	</form>
+	</tr></tbody></table></p>
+	
+ </td>
+</form>	
+
+
+	
+	
+	
+	
+
+<p> SEARCH RESUMES.</p>
+<!-- -->
+            
+<!-- -->
+
+</div>
+</div>
+
+
+  <table border="0" cellpadding="3" cellspacing="0" class="xoText" width="100%">
+                        <tr style="font-weight:bold;"><td style="font-weight:bold;">Candidates</td><td style="font-weight:bold;">Location &nbsp;</td><td style="font-weight:bold;">Last Resume Update</td><td>&nbsp;</td></tr>
+  {% for a in a %}
+
+                              <tr bgcolor='#EDEDED'><td>{{a[0]}} {{a[1]}}</td><td>{{a[2]}} {{a[3]}}</td><td>{{a[4]}}</td>     <td align='right' nowrap='nowrap'>
+
+
+
+            
+			 
+			 <form action="{{url_for('view_resume')}}" method="post">
+			 
+			 <td><input type="hidden" value={{a[5]}} class="xoText" name="profileid"><br></td>
+			 
+                                       
+										<td> <input type="submit" value=" View " style="border:0px;background: none repeat; cursor: pointer; color:#648CBC"> <br>&nbsp;</td>
+	</form>
+                                        
+                                    
+            
+
+   
+    
+
+
+</tr>
+
+
+
+
+
+    {% endfor %}
+
+</table>
+
+
+<a href={{url_for('empsearch_resume_page',page=1,key=key,sec=sec)}}>[1]</a>
+<a href={{url_for('empsearch_resume_page',page=2,key=key,sec=sec)}}>2</a>
+<a href={{url_for('empsearch_resume_page',page=3,key=key,sec=sec)}}>3</a>
+
+
+</body>
+</HTML>
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+        <html>
+          <head>
+            <title>emp_id</title>
+            <script type="text/javascript">
+              function do_ajax() {
+                var req = new XMLHttpRequest();
+                var result = document.getElementById('result');
+                req.onreadystatechange = function()
+                { 
+                  if(this.readyState == 4 && this.status == 200) {
+                    result.innerHTML = this.responseText;
+                  } else {
+                    result.innerHTML = "waiting...";
+                  }
+                }
+                req.open('POST', '/empProfiles' , true);
+                req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                req.send("employerprofileid="+  document.getElementById('Empprofileid').value);
+           /* function myFunction() {
+    var inpObj = document.getElementById("empProfiles");*/
+   
+} 
+            </script>
+          </head>
+          <body>
+<form action="{{url_for('empProfiles')}}" method="post" >
+            
+
+<label>employerprofileid  <select name="Empprofileid" width="300px">
+	
+	
+	
+	<option selected="Empprofileid">-----------idselect----------</option>
+	
+	
+	
+	{% for row in data %}
+	
+	
+	<option value="{{row }}"> {{ row }}</option>
+	
+	
+	{% endfor %} 
+</select></label><br/>
+
+
+
+<button id="empProfiles" onclick="do_ajax()">Click</button>
+<div id="result"></div>
+            </form>
+          </body>
+        </html>
+
+

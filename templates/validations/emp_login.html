@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+        <html>
+          <head>
+            <title>login</title>
+            <script type="text/javascript">
+              function do_ajax() {
+                var req = new XMLHttpRequest();
+                var result = document.getElementById('result');
+                req.onreadystatechange = function()
+                { 
+                  if(this.readyState == 4 && this.status == 200) {
+                    debugger;
+                  } else {
+                    result.innerHTML = "waiting...";
+                  }
+                }
+                req.open('POST', '/emplogin' , true);
+                req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                 var data = "Email="+ document.getElementById('Email').value + "&"+ "Password="+ document.getElementById('Password').value ;
+                                        console.log("data: "+ data);
+                    req.send(data);
+                    
+              }
+            </script>
+          </head>
+          <body>
+		  
+		  
+		   <h1>Login</h1>
+      
+   
+           <form action="{{url_for('emplogin')}}"    method="POST">
+             <label>Email<input type="text" id="Email" name="Email" value="{{ request.form['Email'] }}"></label><br/>
+			 <label>Password<input type="password" id="Password"  name="Password" value=  "{{ request.form['Password'] }}" ></label><br/>
+              <button type="submit" id="btn-post" onclick="do_ajax();">Click</button>
+              <div id="result"></div>	  
+			  </form>
+          </body>
+        </html>

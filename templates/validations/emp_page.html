@@ -1,0 +1,41 @@
+
+
+{% macro render_pagination(pagination) %}
+  <div class=pagination>
+  {%- for page in pagination.iter_pages() %}
+    {% if page %}
+      {% if page != pagination.page %}
+        <a href="{{ url_for_other_page(page) }}">{{ page }}</a>
+      {% else %}
+        <strong>{{ page }}</strong>
+      {% endif %}
+    {% else %}
+      <span class=ellipsis>…</span>
+    {% endif %}
+  {%- endfor %}
+  {% if pagination.has_next %}
+    <a href="{{ url_for_other_page(pagination.page + 1)
+      }}">Next &raquo;</a>
+  {% endif %}
+  </div>
+{% endmacro %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select DISTINCT e.sector_name,a.city, a.state,c.last_updated  from jobseekers a inner join jobseekers_jobs b on a.jobseeker_profile_id=b.jobseeker_profile_id inner join resumes c 
+on  b.jobseeker_profile_id=c.jobseeker_profile_id inner join jobs_sectors d on b.job_id=d.job_id inner join sectors e on d.sector_id=e.sector_id inner join profiles f
+ on a.jobseeker_profile_id=f.profile_id where  e.sector_name = '"+sectors+"' or  a.city='"+ key+"' or a.state='"+ key+"' or f.first_name= '"+ key+"'  or f.last_name= '"+ key+"' or
+ c.resume_title = '"+ key+"'  order by c.last_updated desc limit

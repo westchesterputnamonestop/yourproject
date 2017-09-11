@@ -1,0 +1,107 @@
+<html>
+   <head>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+      <title>Onestop Employer</title>
+      <script type="text/javascript">
+         function do_ajax() {
+           var req = new XMLHttpRequest();
+           var result = document.getElementById('result');
+           req.onreadystatechange = function()
+           { 
+             if(this.readyState == 4 && this.status == 200) {
+               result.innerHTML = this.responseText;
+             } else {
+               result.innerHTML = "waiting...";
+             }
+           }
+           req.open('POST', '/emp_searchresumes' , true);
+           req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+           req.send("employerprofileid="+  document.getElementById('Empprofileid').value);
+      </script>
+   </head>
+   <body>
+      <div class="container" style="">
+         <div class="row">
+            <div class="col-lg-6" >
+               <a href=" "><img src="http://ostest.westchestergov.com/images/logo.png" width="370px" style="margin-left:-18px;padding-top:11px;padding-left:5px;"></a>
+            </div>
+         </div>
+         <hr style="outline: #eeeeee solid thin;">
+         <div class="row" >
+            <div class="col-lg-10">
+               <p>&nbsp;</p>
+               <p class="xoSmall">
+                  <a class="xoLink" href="  ">Home</a>
+                  &raquo
+                  <a class="xoLink" href=" ">Employer</a>
+                  &raquo My One-Stop
+               </p>
+               <h4>My One-Stop</h4>
+               <p>
+               </p>
+               <div class='container'>
+                  <div class='row'>
+                     <div class='col-md-4'>
+                        <p><strong>My Profile </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="{{url_for('emp_editmyprofile',pid=row[0])}}" > [ view ] </a> </p>
+                        <strong>Name :{{row[1]}}{{row[2]}} </strong><br>
+                        <strong>Title :{{row[12]}} </strong><br>
+                        <strong>Company : {{row[13]}}</strong><br>
+                        <strong>Address :{{row[14]}}{{row[15]}} </strong>, , <br>&nbsp;&nbsp;,  <br>
+                        <strong>Phone :{{row[19]}} </strong><br>
+                        <strong>Phone 2 :{{row[21]}} </strong><br>
+                        <strong>Email :{{row[3] }} </strong><a href="mailto:" class="xoLink"></a><br>
+                        <strong>Website :{{row[23]}}  </strong><a target="_blank" href="http://" class="xoLink"></a><br>
+                        <strong>EIN Number : </strong><br>cc
+                        <strong>Company Information :{{row[24]}}  </strong><br>
+                        <strong>Skills desired :{{row[25]}}  </strong><br>
+                     </div>
+                     <div class='col-md-4'>
+                        <h4><a class="xoLink" href=" ">My Job Postings</a></h4>
+                        You have not posted any jobs.  To post a job now,  <a href="{{url_for('emp_postjob',pid=row[0])}}" > CLICK HERE</a>
+                        <h4>  <a href="{{url_for('emp_recentcandidates',pid=row[0])}} ">Recent candidates</a></h4>
+                        You have not visited any candidates.  To begin searching for a candidate, <a href="{{url_for('emp_searchresumes')}}" class='xoLink'>CLICK HERE.</a>                
+                        <h4>Recent Resume Postings</h4>
+                        You do not have any recent resumes posted.  To begin searching for a candidate, <a href=" " class="xoLink">CLICK HERE.</a>
+                        <h4>Recent BTA</strong></h4>
+                        <a href="http://ostest.westchestergov.com/businesstraining/index.php?id=1" class="xoLink">Saved BTA.</a> <br/>
+                        <a href="http://ostest.westchestergov.com/employer/index.php?pid=24&status=Pending" class="xoLink">Submitted BTA.</a> <br/>
+                        <a href="http://ostest.westchestergov.com/employer/index.php?pid=24&status=Rejected" class="xoLink">Rejected BTA.</a> <br/>
+                        <a href="http://ostest.westchestergov.com/employer/index.php?pid=24&status=Approved" class="xoLink">Approved BTA.</a> <br/>
+                     </div>
+                  </div>
+               </div>
+               <!--Modules ContentBottom-->
+               <!--End Modules ContentBottom-->
+            </div>
+            <div class="col-lg-2"  >
+               <!--<h2 style="color:#5c7ebf">Get Started Now!</h2>-->
+               <style>
+                  .xoLink{
+                  color:#000;	
+                  }
+               </style>
+               <div style=" outline: #f6f7f9 solid 10px; padding:8px;">
+                  <form action=" " method="post" name="login">
+                     <input type="hidden" name="redirect" value=""/>
+                     <input type="hidden" name="authenticate" value="Employer"/>         
+                     <h4>Employer Login</h4>
+                     Email:
+                     <input type="text" style="width:125px;" class="xoText" name="Email"/>
+                     Password:
+                     <input type="password" style="width:125px;" class="xoText" name="Password"/><br><br>
+                     <input class="btn" type="submit" value="Login" style="background-color: #b2bb1c; color:#fff;" ><br>
+                     &raquo; <a class="xoLink" href="http://ostest.westchestergov.com/employer/index.php?pid=5">Forgot password?</a><br>
+                     &raquo; <a class="xoLink" href="http://ostest.westchestergov.com/employer/index.php?pid=1">Create account</a>
+                  </form>
+               </div>
+               <br></br>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,414 @@
+<html>
+   <head>
+      <title>login</title>
+      <script type="text/javascript">
+         function do_ajax() {
+           var req = new XMLHttpRequest();
+           var result = document.getElementById('result');
+            var sectors = document.getElementsByName('sectors');
+            var selectedsectors = [];
+             var terms = document.getElementsByName('terms');
+            var selectedterms = [];
+
+            for (var i=0; i<sectors.length; i++) {
+                // And stick the checked ones onto an array...
+                if (sectors[i].checked) {
+                    selectedsectors.push(sectors[i].value);
+                }
+            }
+
+
+             for (var i=1; i=terms.length; i++) {
+                // And stick the checked ones onto an array...
+                if (terms[i].checked) {
+                    selectedterms.push(terms[i].value);
+                }
+            }
+
+
+
+
+
+
+           var formData = {
+                    'firstname':document.getElementById('firstname').value,
+                    'lastname':document.getElementById('lastname').value,
+                    'title':document.getElementById('title').value,
+                    'companyname':document.getElementById('companyname').value,
+                    'address':document.getElementById('address').value,
+                    'city':document.getElementById('city').value,
+                    'state':document.getElementById('state').value,
+                    'zip':document.getElementById('zip').value,
+                    'phone':document.getElementById('phone').value,
+                    'extension':document.getElementById('extension').value,
+                    'altphone':document.getElementById('altphone').value,
+                    'fax':document.getElementById('fax').value,
+                    'website':document.getElementById('website').value,
+                    'einnumber':document.getElementById('einnumber').value,
+                    'companyinformation':document.getElementById('companyinformation').value,
+                    'skillstrainingwanted':document.getElementById('skillstrainingwanted').value,
+                    'sectors':selectedsectors,
+                    'terms':selectedterms,
+                    'email':document.getElementById('Email').value,
+                    'password':document.getElementById('Password').value,
+                    'number':document.getElementById('number').value,
+                    'securityquestion1':document.getElementById('securityquestion1').value,
+                    'securityanswer1':document.getElementById('securityanswer1').value,
+                    'securityquestion2':document.getElementById('securityquestion2').value,
+                    'securityanswer2':document.getElementById('securityanswer2').value		   
+         
+           }
+           req.onreadystatechange = function()
+           {
+           if(this.readyState == 4 && this.status == 200) {
+               if(this.responseText)
+               {
+                   res = JSON.parse(this.responseText)
+                   if(res.success)
+                   {
+                        document.getElementById("success").innerHTML = res.success;
+                        document.getElementById("firstnameerror").innerHTML = '';
+                        document.getElementById("lastnameerror").innerHTML = '';
+                        document.getElementById("titleerror").innerHTML = '';
+                        document.getElementById("companynameerror").innerHTML = '';
+                        document.getElementById("addresserror").innerHTML = '';
+                        document.getElementById("cityerror").innerHTML = '';
+                        document.getElementById("stateerror").innerHTML = '';
+                        document.getElementById("ziperror").innerHTML = '';
+                        document.getElementById("phoneerror").innerHTML = '';
+                        document.getElementById("extensionerror").innerHTML = '';
+                        document.getElementById("altphoneerror").innerHTML = '';
+                        document.getElementById("faxerror").innerHTML = '';
+                        document.getElementById("websiteerror").innerHTML = '';
+                        document.getElementById("einnumbererror").innerHTML = '';
+                        document.getElementById("companyinformationerror").innerHTML = '';
+                        document.getElementById("skillstrainingwantederror").innerHTML = '';
+                        document.getElementById("sectorserror").innerHTML = '';
+                        document.getElementById("termserror").innerHTML = '';
+
+                        document.getElementById("emailerror").innerHTML = '';
+                        document.getElementById("passworderror").innerHTML ='';
+                        document.getElementById("numerror").innerHTML = '';
+                        document.getElementById('securityquestion1').innerHTML = '';
+                        document.getElementById('securityanswer1').innerHTML = '';
+                        document.getElementById('securityquestion2').innerHTML = '';
+                        document.getElementById('securityanswer2').innerHTML = '';
+                        document.getElementById("loginform").style.display = 'none';
+                   }
+                   else{
+                       if(res.firstname)
+                       {
+                           document.getElementById("firstnameerror").innerHTML = res.firstname;
+                       }
+                       else{
+                           document.getElementById("firstnameerror").innerHTML = '';
+                       }
+                       
+                       if(res.lastname)
+                       {
+                           document.getElementById("lastnameerror").innerHTML = res.lastname;
+                       }
+                       else{
+                           document.getElementById("lastnameerror").innerHTML = '';
+                       }
+                      if(res.title)
+                       {
+                           document.getElementById("titleerror").innerHTML = res.title;
+                       }
+                       else{
+                           document.getElementById("titleerror").innerHTML = '';
+                       }
+         
+                       if(res.companyname)
+                       {
+                           document.getElementById("companynameerror").innerHTML = res.companyname;
+                       }
+                       else{
+                           document.getElementById("companynameerror").innerHTML = '';
+                       }
+                       if(res.address)
+                       {
+                           document.getElementById("addresserror").innerHTML = res.address;
+                       }
+                       else{
+                           document.getElementById("addresserror").innerHTML = '';
+                       }
+                       if(res.city)
+                       {
+                           document.getElementById("cityerror").innerHTML = res.city;
+                       }
+                       else{
+                           document.getElementById("cityerror").innerHTML = '';
+                       }
+                       if(res.state)
+                       {
+                           document.getElementById("stateerror").innerHTML = res.state;
+                       }
+                       else{
+                           document.getElementById("stateerror").innerHTML = '';
+                       }
+                      if(res.zip)
+                       {
+                           document.getElementById("ziperror").innerHTML = res.zip;
+                       }
+                       else{
+                           document.getElementById("ziperror").innerHTML = '';
+                       }
+                      if(res.phone)
+                       {
+                           document.getElementById("phoneerror").innerHTML = res.phone;
+                       }
+                       else{
+                           document.getElementById("phoneerror").innerHTML = '';
+                       }
+                       if(res.extension)
+                       {
+                           document.getElementById("extensionerror").innerHTML = res.extension;
+                       }
+                       else{
+                           document.getElementById("extensionerror").innerHTML = '';
+                       }
+                       if(res.altphone)
+                       {
+                           document.getElementById("altphoneerror").innerHTML = res.altphone;
+                       }
+                       else{
+                           document.getElementById("altphoneerror").innerHTML = '';
+                       }
+                       if(res.fax)
+                       {
+                           document.getElementById("faxerror").innerHTML = res.fax;
+                       }
+                       else{
+                           document.getElementById("faxerror").innerHTML = '';
+                       }
+                       if(res.website)
+                       {
+                       document.getElementById("websiteerror").innerHTML = res.website;
+                       }
+                       else
+                       {
+                           document.getElementById("websiteerror").innerHTML = '';
+                       }
+                       if(res.einnumber)
+                       {
+                           document.getElementById("einnumbererror").innerHTML = res.einnumber;
+                       }
+                       else
+                       {
+                           document.getElementById("einnumbererror").innerHTML ='';
+                       }
+                       if(res.companyinformation)
+                       {
+                           document.getElementById("companyinformationerror").innerHTML = res.companyinformation;
+                       }
+                       else
+                       {
+                           document.getElementById("companyinformationerror").innerHTML = '';
+                       } 
+                       if(res.skillstrainingwanted)
+                       {
+                           document.getElementById("skillstrainingwantederror").innerHTML = res.skillstrainingwanted;
+                       }
+                       else{
+                           document.getElementById("skillstrainingwantederror").innerHTML = '';
+                       }
+                       if(res.sectors)
+                       {
+                           document.getElementById("sectorserror").innerHTML = res.sectors;
+                       }
+                       else{
+                           document.getElementById("sectorserror").innerHTML = '';
+                       }
+                        if(res.terms)
+                       {
+                           document.getElementById("termsserror").innerHTML = res.terms;
+                       }
+                       else{
+                           document.getElementById("termserror").innerHTML = '';
+                       }
+
+         
+                       if(res.email)
+                       {
+                       document.getElementById("emailerror").innerHTML = res.email;
+                       }
+                       else
+                       {
+                           document.getElementById("emailerror").innerHTML = '';
+                       }
+                       if(res.password)
+                       {
+                           document.getElementById("passworderror").innerHTML = res.password;
+                       }
+                       else{
+                           document.getElementById("passworderror").innerHTML ='';
+                       }
+                       if(res.phnumber)
+                       {
+                       document.getElementById("numerror").innerHTML = res.phnumber;
+                       }
+                       else
+                       {
+                       document.getElementById("numerror").innerHTML = '';
+                       }
+                       if(res.securityquestion1)
+                       {
+                       document.getElementById("securityquestion1error").innerHTML = res.securityquestion1;
+                       }
+                       else
+                       {
+                           document.getElementById("securityquestion1error").innerHTML = '';
+                        }
+                       if(res.securityanswer1)
+                       {
+                       document.getElementById("securityanswer1error").innerHTML = res.securityanswer1;
+                       }
+                       else
+                       {
+                           document.getElementById("securityanswer1error").innerHTML = '';
+                        }
+                       if(res.securityquestion2)
+                       {
+                       document.getElementById("securityquestion2error").innerHTML = res.securityquestion2;
+                       }
+                       else
+                       {
+                           document.getElementById("securityquestion2error").innerHTML = '';
+                        }
+                        if(res.securityanswer2)
+                       {
+                       document.getElementById("securityanswer2error").innerHTML = res.securityanswer2;
+                       }
+                       else
+                       {
+                           document.getElementById("securityanswer2error").innerHTML = '';
+                        }
+
+                   }
+                   
+               }
+         
+           } else {
+               result.innerHTML = "waiting...";
+           }  
+           }
+           req.open('POST', '/loginvalidate' , true);
+           req.setRequestHeader('content-type', 'application/json');
+           req.send(JSON.stringify(formData));
+         }
+      </script>
+   </head>
+   <body>
+      <h3 id="success" style="color:green"></h3>
+      <h3 id="error" style="color:red"></h3>
+      <form id="loginform">
+         <table border="0" cellpadding="3" cellspacing="0">
+            <label>firstname<input type="text" id="firstname" value=""   maxlength="20" style="text-align:right;"></label>
+            <span style="color:red" id="firstnameerror"></span><br/>
+            <label>lastname<input type="text" id="lastname" value=""   maxlength="20"  style="text-align:right;" ></label>
+            <span style="color:red" id="lastnameerror"></span><br/>
+            <label>title<input type="text"  align="right" id="title" value=""   maxlength="20" ></label>
+            <span style="color:red" id="titleerror"></span><br/>
+            <label>companyname<input type="text" id="companyname" value=""   maxlength="20" ></label>
+            <span style="color:red" id="companynameerror"></span><br/>
+            <label>Address<input type="text" id="address" value=""   maxlength="20" ></label>
+            <span style="color:red" id="addresserror"></span><br/>
+            <label>city<input type="text" id="city" value=""   maxlength="20" ></label>
+            <span style="color:red" id="cityerror"></span><br/>
+            <label>
+               State*
+               <select name="State" id='state' class="required" style="width:314px;">
+            </label>
+            <option value="">-- Select your state ----------</option>
+            <option value='AK'>Alaska</option><option value='AL'>Alabama</option><option value='AR'>Arkansas</option><option value='AS'>American Samoa</option><option value='AZ'>Arizona</option><option value='CA'>California</option><option value='CO'>Colorado</option><option value='CT'>Connecticut</option><option value='DC'>District of Columbia</option><option value='DE'>Delaware</option><option value='FL'>Florida</option><option value='FM'>Federated States of Micronesia</option><option value='GA'>Georgia</option><option value='GU'>Guam</option><option value='HI'>Hawaii</option><option value='IA'>Iowa</option><option value='ID'>Idaho</option><option value='IL'>Illinois</option><option value='IN'>Indiana</option><option value='KS'>Kansas</option><option value='KY'>Kentucky</option><option value='LA'>Louisiana</option><option value='MA'>Massachusetts</option><option value='ME'>Maine</option><option value='MD'>Maryland</option><option value='MH'>Marshall Islands</option><option value='MI'>Michigan</option><option value='MN'>Minnesota</option><option value='MO'>Missouri</option><option value='MP'>Northern Mariana Islands</option><option value='MS'>Mississippi</option><option value='MT'>Montana</option><option value='NC'>North Carolina</option><option value='ND'>North Dakota</option><option value='NE'>Nebraska</option><option value='NH'>New Hampshire</option><option value='NJ'>New Jersey</option><option value='NM'>New Mexico</option><option value='NV'>Nevada</option><option value='NY'>New York</option><option value='OH'>Ohio</option><option value='OK'>Oklahoma</option><option value='OR'>Oregon</option><option value='PA'>Pennsylvania</option><option value='PR'>Puerto Rico</option><option value='PW'>Palau</option><option value='RI'>Rhode Island</option><option value='SC'>South Carolina</option><option value='SD'>South Dakota</option><option value='TN'>Tennessee</option><option value='TX'>Texas</option><option value='UT'>Utah</option><option value='VI'>Virgin Islands</option><option value='VT'>Vermont</option><option value='VA'>Virginia</option><option value='WA'>Washington</option><option value='WI'>Wisconsin</option><option value='WV'>West Virginia</option><option value='WY'>Wyoming</option><option value='AB'>Alberta</option><option value='BC'>British Columbia</option><option value='MB'>Manitoba</option><option value='NB'>New Brunswick</option><option value='NL'>Newfoundland and Labrador</option><option value='NT'>Northwest Territories</option><option value='NS'>Nova Scotia</option><option value='NU'>Nunavut</option><option value='ON'>Ontario</option><option value='PE'>Prince Edward Island</option><option value='QC'>Quebec</option><option value='SK'>Saskatchewan</option><option value='YT'>Yukon</option></select>
+            <span style="color:red" id="stateerror"></span><br/>
+               
+            <label>zip<input type="text" id="zip" value=""   maxlength="20" ></label>
+            <span style="color:red" id="ziperror"></span><br/>
+            <label>Phone*<input type="text" id="phone" value=""   maxlength="20" ></label>
+            <span style="color:red" id="phoneerror"></span><br/>
+            <label>Extension<input type="text" id="extension" value=""   maxlength="20" ></label>
+            <span style="color:red" id="extensionerror"></span><br/>
+            <label>Alt Phone<input type="text" id="altphone" value=""   maxlength="20" ></label>
+            <span style="color:red" id="altphoneerror"></span><br/>
+            <label>Fax<input type="text" id="fax" value=""   maxlength="20" ></label>
+            <span style="color:red" id="faxerror"></span><br/>
+            <label>Website*<input type="text" id="website" value=""   maxlength="20" ></label>
+            <span style="color:red" id="websiteerror"></span><br/>
+            <label>EIN Number<input type="text" id="einnumber" value=""   maxlength="20" ></label>
+            <span style="color:red" id="einnumbererror"></span><br/>
+            <label>Company info <textarea name="companyinformation" id="companyinformation" style="width:300px;height:75px;"></textarea></label>
+            <span style="color:red" id="companyinformationerror"></span><br/>
+            <label>  Skills training desired*<textarea name="SkillsTrainingWanted" id="skillstrainingwanted" class="xoText" style="width:300px;height:75px;"></textarea></label><br/>
+            <span style="color:red" id="skillstrainingwantederror"></span><br/>
+            <label>sectors</label>  
+                <input type="checkbox" name="sectors" value="1"> Green</input>
+                <input type="checkbox" name="sectors" value="2">Healthcare</input>
+                <input type="checkbox" name="sectors" value="3">Hospitality</input>
+                <input type="checkbox" name="sectors" value="4">Professional Services</input>
+                <input type="checkbox" name="sectors" value="5">Biotech</input>
+                <input type="checkbox" name="sectors" value="6">Not For Profit</input>
+                <input type="checkbox" name="sectors" value="7">Manufacturing</input>
+                <input type="checkbox" name="sectors" value="8">Other</input>
+                </br>
+            <span style="color:red" id="sectorserror"></span><br/>
+            <label>Email<input type="text" id="Email" value=""  ></label>
+            <span style="color:red" id="emailerror"></span><br/>
+            <label>Password<input type="text" id="Password" value=""></label>
+            <span style="color:red" id="passworderror"></span><br/>
+            <label>number<input type="text" id="number" value=""></label>
+            <span style="color:red" id="numerror"></span><br/>
+            <label>Security question 1*	  <select name="securityquestion1" id="securityquestion1" class="required" style="width:314px;">
+            <option value="">-- Select question ----------</option>
+            <option value='1'>What was your childhood nickname?</option><option value='2'>In what city did you meet your spouse/significant other?</option><option value='3'>What is the name of your favorite childhood friend?</option><option value='4'>What street did you live on in third grade?</option><option value='5'>What is your oldest sibling's birthday month and year (e.g., January 1990)</option><option value='6'>What is the middle name of your youngest child?</option><option value='7'>What is your oldest sibling's middle name?</option><option value='8'>What school did you attend for sixth grade?</option><option value='9'>What was your childhood phone number including area code? (e.g., 000-000-0000)</option><option value='10'>What is your oldest cousin's first and last name?</option><option value='11'>What was the name of your first stuffed animal?</option><option value='12'>In what city or town did your mother and father meet?</option><option value='13'>What was the last name of your third grade teacher?</option><option value='14'>In what city does your nearest sibling live?</option><option value='15'>What is your youngest brother's birthday month and year (e.g., January 1990)</option><option value='16'>What is your maternal grandmother's maiden name?</option><option value='17'>In what city or town was your first job?</option></select>
+            </label>          
+            <span style="color:red" id="securityquestion1error"></span><br/>
+            <label>Security answer 1*	<input type="text" id="securityanswer1" maxlength="200" class="xoText" style="width:300px;">
+            <span style="color:red" id="securityanswer1error"></span><br/>
+            <label>Security question 2*	<select name="SecurityQuestion2" id="securityquestion2" class="required" style="width:314px;">
+            <option value="">-- Select question ----------</option>
+            <option value='1'>What was your childhood nickname?</option><option value='2'>In what city did you meet your spouse/significant other?</option><option value='3'>What is the name of your favorite childhood friend?</option><option value='4'>What street did you live on in third grade?</option><option value='5'>What is your oldest sibling's birthday month and year (e.g., January 1990)</option><option value='6'>What is the middle name of your youngest child?</option><option value='7'>What is your oldest sibling's middle name?</option><option value='8'>What school did you attend for sixth grade?</option><option value='9'>What was your childhood phone number including area code? (e.g., 000-000-0000)</option><option value='10'>What is your oldest cousin's first and last name?</option><option value='11'>What was the name of your first stuffed animal?</option><option value='12'>In what city or town did your mother and father meet?</option><option value='13'>What was the last name of your third grade teacher?</option><option value='14'>In what city does your nearest sibling live?</option><option value='15'>What is your youngest brother's birthday month and year (e.g., January 1990)</option><option value='16'>What is your maternal grandmother's maiden name?</option><option value='17'>In what city or town was your first job?</option></select>
+            </label>  
+            <span style="color:red" id="securityquestion2error"></span><br/>
+            <label>Security answer 2*	<input type="text" id="securityanswer2" maxlength="200" class="xoText" style="width:300px;">
+            <span style="color:red" id="securityanswer2error"></span><br/>
+            <label>Terms & Conditions
+            <div style="overflow:scroll; height:300px; width:50%;border:solid 1px #c0c0c0; border-radius: 3px;" >
+            <p><b>INTRODUCTION</b></p>
+            <p>As the labor market continues to evolve, employers recognize that a prepared workforce is the most important element to consider as they prepare to pursue their business goals.  The Westchester-Putnam Business Sector Partnership was formed to provide a resource to promote and maintain the economic vitality of their organizations. </p>
+            <p><b>MISSION</b></p>
+            <p>To develop a network and resources to grow and maintain employment for key industries and companies located in Westchester and Putnam Counties, with a focus on establishing and nurturing a prepared workforce to maximize the long-term health and vitality of our communities. </p>
+            <p><b>VISION</b></p>
+            <p>Businesses based in Westchester and Putnam counties will access a pipeline of prepared and qualified workers to assist them in their efforts to compete in today’s global economy. Westchester and Putnam workers will have access to training and education programs they need to enter and advance in their careers within the region’s key employment sectors.</p>
+            <p><b>EMPLOYER SERVICES</b></p>
+            <p>Membership is provided at no cost to Westchester and Putnam County-based employers. Business Sector Partnership members will receive access to apply for training funding, tax incentives and recruitment opportunities, updates on key economic development plans, and share input to their workforce needs.</p>
+            <p><b>Services available to Members include:</b></p>
+            <ul>
+            <li style="list-style-type: square; margin:0 20px;">Recruitment of skilled, diverse workers based on employer-defined standards</li>
+            <li style="list-style-type: square; margin:0 20px;">Customized screening and assessment of prospective employees</li>
+            <li style="list-style-type: square; margin:0 20px;">Training at the post-secondary level, customized to employer standards</li>
+            <li style="list-style-type: square; margin:0 20px;">On-the-job training to serve the needs of employees and their employers</li>
+            <li style="list-style-type: square; margin:0 20px;">Access to funding to underwrite the cost and expand the capacity to train new and incumbent workers</li>
+            <li style="list-style-type: square; margin:0 20px;">Networking in their respective employer communities to more effectively and efficiently meet the needs of each organization in key business sectors</li>
+            <li style="list-style-type: square; margin:0 20px;">Share best practices on training and recruitment</li>
+            </ul>
+            <p><b>EMPLOYER MEMBER CONTRIBUTIONS</b></p>
+            <p><b>Employers are asked to commit to the following:</b></p>
+            <ul>
+            <li style="list-style-type: square; margin:0 20px;">Attend quarterly sector partnership meetings</li>
+            <li style="list-style-type: square; margin:0 20px;">Actively participate in these meetings</li>
+            <li style="list-style-type: square; margin:0 20px;">Develop and provide an assessment of your company&#8217;s skills and needs</li>
+            <li style="list-style-type: square; margin:0 20px;">List jobs with the One-Stop Employment Center</li>
+            </ul>
+            <br>   
+            <input type="checkbox" value="1" name="terms" id="terms" />&nbsp;<a style="font-size:1em;font-family: arial;">I have read and understand the above Disclaimer and Terms of Use.</a>
+            <span style="color:red" id="termserror"></span><br/>
+            </div>
+            </label>
+            <button type="button" id="btn-post" onclick="do_ajax();">Click</button>
+            <div id="result"></div>
+         </table>
+      </form>
+   </body>
+</html>

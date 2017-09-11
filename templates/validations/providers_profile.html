@@ -1,0 +1,1333 @@
+
+
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />  
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<title>Westchester Putnam One-Stop Training Provider</title>
+</head>
+<body>
+<div class="container" style="">
+<div class="row">
+<div class="col-lg-6" >
+<a href="/"><img src="https://www.westchesterputnamonestop.com/images/logo.png" width="370px" style="margin-left:-18px;padding-top:11px;padding-left:5px;"></a>
+</div>
+<div  align="right" class="col-lg-6" style="margin-top:8px; "> <!-- pqp4 changed position from absolute -->
+               		<a href="/login_form.php?user=Employer" class="btn" style="color:#fff;background-color:#b2bb1c; border:0" role="button"><strong>Employer Login</strong> </a>
+		<a href="/login_form.php?user=Job%20Seeker" class="btn" style="color:#fff;background-color:#91aed5; border:0 " role="button"><strong>Job Seeker Login</strong> </a><br>
+		<font style="color:#000000; font-size:90%">New user?</font> <u>
+		<a href="/employer/index.php?pid=1"><font style="color:#000; font-size:90%">Employer sign up.</u></font></a> 
+		<a href="/job-seeker/index.php?pid=1"><font style="color:#000; font-size:90%"><u>Job Seeker sign up.</u></font></a></font>
+               </div>
+
+</div>
+<hr style="outline: #eeeeee solid thin;">
+<div class="row" >
+   <div class="col-lg-10">
+	
+    <link type="text/css" href="/css/jquery-ui-1.8.16.custom.css" rel="stylesheet"  />
+<script src="/scripts/jquery-1.6.1.min.js" type="text/javascript"></script>
+<script src="/scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+<script src="/scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="/scripts/jquery.maskedinput.min.js" type="text/javascript"></script>
+
+<table class="xoText" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+<tr>
+<td>
+<div style="position:relative;">
+<p class="xoSmall" style="line-height:5em;">
+	<a class="xoLink" href="/"> Home &raquo</a>
+	<a class="xoLink" href="/providers/index.php?pid=3">Training Providers &raquo</a>
+ 	WPOS ETP Account Portal
+</p>
+<p><h2 style="line-height:2.3em">My Profile : {{providername}}</h2></p>
+
+<p>{{msg}}</p>
+
+{% if msg != "" %}
+   {{msg}}
+	<table class="xoText" width="100%" cellspacing="0" cellpadding="3" border="0">
+	<tbody>
+		<tr>
+			<td>{{msg}}</td>
+		</tr>
+	</tbody>
+</table>
+		
+	{% endif %}
+
+<p align="right" style="line-height:3.3em">
+[<a class="xoLink" href="/providers_login">Logout</a>]
+</p>
+
+
+<p>
+<table width="100%" cellspacing="0" cellpadding="2" border="0" style="background-color:#cccccc;">
+<tbody>
+<tr>
+<td>
+<table id="AccountInformationHeader" class="xoText" width="100%" cellspacing="0" cellpadding="5" border="0" style="background-color:#bdbdbd;color:#000000;font-weight: bold;" onclick="openETPTab('AccountInformation');" onmouseout="if(document.getElementById('ETPAccountInformation').style.display=='none')this.bgColor='EDEDED';" onmouseover="this.bgColor='DEDEDE';" style="cursor:pointer;font-weight:bold;">
+<tbody>
+<tr>
+<td style="font-weight:bold;">&nbsp;&nbsp;Account Information</td>
+<td align="right" style="text-align:right;">
+<img id="ETPAccountInformationArrow" width="20 px" height="25 px" border="0" alt="" src="https://www.westchesterputnamonestop.com/images/darrowr.png">
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+<p style="margin-top:4px;"></p>
+<div id="ETPAccountInformation" style="display: none;">
+<table id="ETPAccountInformationView" class="xoText" width="100%" cellspacing="0" cellpadding="3" border="0">
+<tbody>
+<tr>
+<td width="15%" style="font-weight:bold;">Name:</td>
+<td width="35%">{{acinfo[0]}}</td>
+<td width="15%" nowrap="nowrap" style="font-weight:bold;">Business name:</td>
+<td width="35%">{{acinfo[1]}}</td>
+</tr>
+<tr>
+<td style="font-weight:bold;">EIN:</td>
+<td>{{acinfo[2]}}</td>
+<td style="font-weight:bold;">Approved:</td>
+<td>{{acinfo[3]}}</td>
+</tr>
+<tr>
+<td style="font-weight:bold;">Contact:</td>
+<td>{{acinfo[4]}} {{acinfo[5]}}</td>
+<td style="font-weight:bold;">Phone:</td>
+<td>{{acinfo[6]}}</td>
+</tr>
+<tr>
+<td style="font-weight:bold;">Address:</td>
+<td>{{acinfo[7]}}</td>
+<td style="font-weight:bold;">Email:</td>
+<td>{{acinfo[8]}}</td>
+</tr>
+<tr>
+<td> </td>
+<td> {{acinfo[10]}}</td>
+<td style="font-weight:bold;">Website:</td>
+<td>{{acinfo[11]}}</td>
+</tr>
+<tr>
+<td nowrap="nowrap" style="font-weight:bold;">Has License:</td>
+<td>{{acinfo[12]}} </td>
+<td nowrap="nowrap" style="font-weight:bold;">State Exempt:</td>
+<td>{{acinfo[13]}} </td>
+</tr>
+<tr>
+<td nowrap="nowrap" style="font-weight:bold;">Corporate name as per W9:</td>
+<td>{{acinfo[14]}}</td>
+<td nowrap="nowrap" style="font-weight:bold;">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td style="font-weight:bold;">Created ON: </td>
+<td>{{acinfo[15]}}</td>
+<td style="font-weight:bold;">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td style="font-weight:bold;">Password:</td>
+<td colspan="2">Click edit to change your password</td>
+<td align="right" width='100%'>
+<input class="xoText" type="button" onclick="ChangeETPView('AccountInformation');" value="Edit">
+</td>
+</tr>
+<tr><td>&nbsp; </td></tr>
+</tbody>
+</table>
+
+<head>
+            <title>providers_edit</title>
+            <script type="text/javascript">
+              function do_providers_edit() {
+                var req = new XMLHttpRequest();
+                var result = document.getElementById('result');
+				req.onreadystatechange = function()
+                {
+                  if(this.readyState == 4 && this.status == 200) {
+                    result.innerHTML = "processing...";
+					
+					if(req.responseText.startsWith('Invalid'))
+						result.innerHTML = req.responseText ;
+					else
+						window.location = req.responseURL; 
+					    
+                  } else {
+                    result.innerHTML = "waiting...";
+			  	     }
+                }
+                req.open('POST', '/providers_edit' , true);
+                req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                    var data = "ProviderName="+ document.getElementById('ProviderName').value + "&"+  
+					"BusinessName="+ document.getElementById('BusinessName').value + "&"+ 
+					"CorporateName="+ document.getElementById('CorporateName').value + "&"+ 
+					"IDValue="+ document.getElementById('IDValue').value + "&"+ 
+					"FirstName="+ document.getElementById('FirstName').value + "&"+ 
+					"LastName="+ document.getElementById('LastName').value + "&"+ 
+					"Phone="+ document.getElementById('Phone').value + "&"+
+					"Address="+ document.getElementById('Address').value + "&"+  
+					"Email="+ document.getElementById('Email').value + "&"+ 
+					"City="+ document.getElementById('City').value + "&"+ 
+					"Zip="+ document.getElementById('Zip').value + "&"+ 
+					"Website="+ document.getElementById('Website').value + "&"+ 
+					"HaveLicense="+ document.getElementById('HaveLicense').value + "&"+
+					"StateExempt="+ document.getElementById('StateExempt').value + "&"+
+					"CurrentPassword="+ document.getElementById('CurrentPassword').value + "&"+ 
+					"NewPassword="+ document.getElementById('NewPassword').value + "&"+ 
+					"ConfirmPassword="+ document.getElementById('ConfirmPassword').value;
+					console.log("data: "+ data);
+                    req.send(data);
+              }
+            </script>
+          </head>
+<form action="{{ url_for('providers_edit') }}" method="post" id="providers_edit" >
+<table id="ETPAccountInformationEdit" class="xoText" width="100%" cellspacing="0" cellpadding="3" border="0" style="display:none;" >
+
+<input type="hidden" value="Provider" name="portal">
+<input type='hidden' name='profile_id' value='Array'>
+<tbody>
+	<tr>
+		<td>Name:</td>
+		<td nowrap="nowrap"><input class="xoText" type="text" style="width:245;" value="{{acinfo[0]}}" id="ProviderName" name="ProviderName"></td>
+    </tr>
+    <tr>
+		<td width="50%">Business name</td>
+ 		<td><input class="xoText" type="text" style="width:245;"  value="{{acinfo[1]}}" name="BusinessName" id="BusinessName" /></td>
+	</tr>
+    <tr>
+		<td width="50%">Corporate name as per W9 </td>
+ 		<td><input class="xoText" type="text" style="width:245;" value="{{acinfo[14]}}"  name="CorporateName" id="CorporateName" /></td>
+	</tr>
+	<tr>
+		<td>EIN:</td>
+		<td><input class="xoText" type="text" style="width:260;height:22;" name="IDValue" value="{{acinfo[2]}}" id="IDValue" /></td>
+    </tr>
+    <tr>
+		<td>Approved:</td><td>Yes  </td>
+	</tr>
+	<tr>
+		<td valign="top">Contact:</td>
+		<td valign="top"><table class="xoSmall" width="245" cellspacing="0" cellpadding="0" border="0">
+			<tbody>
+				<tr>
+					<td><input class="xoText" type="text"  style="width:121;" value="{{acinfo[4]}}"   name="FirstName" id="FirstName" >
+						<br>First name
+					</td>
+					<td style="padding-left:3;"><input class="xoText" type="text"  style="width:121;" value="{{acinfo[5]}}"  name="LastName" id="LastName" >
+						<br>Last name
+					</td>
+				</tr>
+			</tbody>
+		</table></td>
+    </tr>
+    <tr>
+		<td valign="top">Phone:</td>
+		<td width="50%" valign="top"><input class="xoText" type="text" style="width:245;" value="{{acinfo[6]}}" name="Phone" id="Phone"/></td>
+	</tr>
+	<tr>
+		<td>Address:</td>
+		<td width="50%"><input class="xoText" type="text" style="width:245;" value="{{acinfo[7]}}"  name="Address" id="Address" /></td>
+    </tr>
+    <tr>
+		<td>Email:</td>
+		<td width="50%"><input class="xoText" type="text" style="width:245;" value="{{acinfo[8]}}"  name="Email" id="Email"</td>
+	</tr>
+	<tr>
+		<td valign="top"> </td>
+		<td valign="top"><table class="xoSmall" width="245" cellspacing="0" cellpadding="0" border="0">
+			<tbody>
+				<tr>
+					<td><input class="xoText" type="text" style="width:161;" value="{{acinfo[9]}}"  name="City" id="City" />
+						<br>City
+					</td>
+					<td style="padding-left:3;"><input class="xoText" type="text" style="width:81;" value="{{acinfo[10]}}" name="Zip" id="Zip" >
+						<br>Zip
+					</td>
+				</tr>
+			</tbody>
+		</table></td>
+    </tr>
+    <tr>
+		<td valign="top">Web Site:</td>
+		<td width="50%" valign="top"><input class="xoText" type="text"  style="width:245;"  value="{{acinfo[11]}}" name="Website" id="Website" />
+		</td>
+	</tr>
+	<tr>
+		<td nowrap="nowrap">Has License: </td>
+		<td>
+            <input type="radio" value="1" name="HaveLicense" id="HaveLicense"   >Yes
+            <input type="radio" value="0" name="HaveLicense"  id="HaveLicense"  checked="checked"  >No
+		</td>
+    </tr>
+    <tr>
+		<td nowrap="nowrap">State Exempt:  </td>
+        <td>
+            <input type="radio" value="1" name="StateExempt"  id="StateExempt" >Yes
+            <input type="radio" value="0" name="StateExempt"  checked="checked"  id="StateExempt" >No
+        </td>
+	</tr>
+	<tr> 
+	
+	<td style="padding:0;" colspan="2"><table class="xoText" width="100%" cellspacing="0" cellpadding="3" border="0">
+	
+			<tbody>
+				<tr>
+					<td colspan="2"><b>Change Password</b>(optional)</td>
+				</tr>
+				<tr>
+					<td>Current:</td>
+					<td><input class="xoText" type="text" style="width:245;" value="{{acinfo[16]}}" name="CurrentPassword"></td>
+				</tr>
+	
+				<tr>
+					<td>New:</td>
+					<td><input class="xoText" type="text" style="width:245;" name="NewPassword" id="NewPassword" ></td>
+				</tr>
+				<tr>
+					<td>Confirm:</td>  
+					<td><input class="xoText" type="text" style="width:245;" name="ConfirmPassword" id="ConfirmPassword" ></td>
+				</tr>
+	
+	
+			</tbody>
+			
+	
+		</table></td>
+	
+    </tr>
+    <tr>
+		<td> </td>
+		<td valign="bottom" align="right">
+			<input class="xoText" type="button" style="width:70px;" onclick="ChangeETPView('AccountInformation');" value="Cancel">
+	
+		
+			<input type="submit" value="Save" class="xoText" onclick="do_providers_edit()"; />
+		</td>
+	</tr>
+</tbody>
+</table>
+
+</form>
+</div>
+<p style="margin-top:4px;"></p>
+<p>
+<table width="100%" cellspacing="0" cellpadding="2" border="0" style="background-color:#CCCCCC;">
+<tbody>
+<tr>
+<td>
+<table id="ETPSemestersHeader" class="xoText" width="100%" cellspacing="0" cellpadding="5" border="0" style="background-color:#bdbdbd;color:#000000;font-weight: bold;" onclick="openETPTab('Semesters');" onmouseout="if(document.getElementById('ETPSemesters').style.display=='none')this.bgColor='EDEDED';" onmouseover="this.bgColor='DEDEDE';" style="cursor:pointer;font-weight:bold;">
+<tbody>
+<tr>
+<td style="font-weight:bold;">&nbsp;&nbsp;Semesters</td>
+<td align="right" style="text-align:right;">
+<img id="ETPSemestersArrow" width="20px" height="25px" border="0" alt="" src="https://www.westchesterputnamonestop.com/images/darrowr.png">
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+<p style="margin-top:4px;"></p>
+<!--div id="ETPSemesters" style="display:none;width:550px;float:left;overflow-y:auto;height:500px;"!-->
+    <div id="ETPSemesters" style="width:100%;display: none; float:left;overflow-y: auto; height: 200px;">
+	
+<table class="xoText" width="100%" cellspacing="0" cellpadding="3" border="0">
+    <tbody>
+        <tr style="font-weight:bold;">
+            <td style="font-weight:bold;">New Semester</td>
+            <td align="center" style="font-weight:bold;">&nbsp;&nbsp;Year</td>
+            <td width="100%"> </td>
+        </tr>
+        <tr>
+<head>
+            <title>providersemadd</title>
+            <script type="text/javascript">
+              function do_providersemadd() {
+                var req = new XMLHttpRequest();
+                var result = document.getElementById('result');
+				req.onreadystatechange = function()
+                {
+                  if(this.readyState == 4 && this.status == 200) {
+                    result.innerHTML = "processing...";
+					if(req.responseText.startsWith('Invalid'))
+						result.innerHTML = req.responseText ;
+					else
+						window.location = req.responseURL; 
+					
+                  } else {
+                    result.innerHTML = "waiting...";
+			  	     }
+                }
+                req.open('POST', '/providersemadd' , true);
+                req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                    var data = "SemesterName="+ document.getElementById('SemesterName').value + "&"+  
+					"SemesterYear="+ document.getElementById('SemesterYear').value;
+					console.log("data: "+ data);
+                    req.send(data);
+              }
+            </script>
+          </head>
+<form action="{{url_for('providersemadd')}}" method="post" id="providersemadd" >
+            <input type="hidden" value="" name="portal">
+            <td>
+            	<input class="xoText" type="text" style="width:350px;" name="SemesterName" id="SemesterName">
+            </td>
+            <td>
+                <select class="xoText" style="width:80px;" name="SemesterYear" id="SemesterYear">
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+				<option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+				<option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+                <option value="2031">2031</option>
+                </select>
+            </td>
+            <td>&nbsp;</td>
+            <td>
+            	<input class="xoText" width="50px;" type="submit" value="Add" onclick="do_providersemadd()";>
+				
+            </td>
+            </form>
+        </tr>
+        <tr>
+        <td colspan="4"> </td>
+        </tr><tr>
+        	<td colspan="3">&nbsp;</td>
+        </tr>
+		 
+		{% for yr, value in data.items() %}
+
+
+			<tr style="font-weight:bold;">
+            <td style="font-weight:bold;" width='100%'>{{yr}} Semesters</td>
+            <td align="center" style="font-weight:bold;" width='100%'>Courses</td>
+            <td width='100%'>&nbsp; </td>
+        </tr>
+		<tr><td>&nbsp;</td></tr>
+		  
+		 {% set counter = [] %}
+            {% for crs in value %}
+		      {% if counter.append('1') %}
+			  {% endif %}
+	<form method="post" id="semedit" >
+			<tr id="SemesterView{{crs[0]}}" style="" bgcolor="#EDEDED">
+            <td width="100%">{{crs[1]}} </td>
+            <td width="100%" align="center">{{crs[3]}}</td><td>&nbsp;</td>
+            <td width="100%" nowrap="nowrap" align="right">
+			
+			[<a class="xoLink" onclick="document.getElementById('SemesterEdit{{crs[0]}}').style.display=''; document.getElementById('SemesterView{{crs[0]}}').style.display='none';" style="cursor:pointer;">Edit</a> 
+			 
+			<head>
+			<title>semedit</title>
+			<script type="text/javascript">
+			function do_semedit() {
+                var req = new XMLHttpRequest();
+                var result = document.getElementById('result');
+				req.onreadystatechange = function()
+                {
+                  if(this.readyState == 4 && this.status == 200) {
+                    result.innerHTML = "processing...";
+					if(req.responseText.startsWith('Invalid'))
+						result.innerHTML = req.responseText ;
+					else
+						window.location = req.responseURL; 
+					
+                  } else {
+                    result.innerHTML = "waiting...";
+			  	     }
+                }
+                req.open('POST', '/semedit' , true);
+                req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                    var data = "SemesterName="+ document.getElementById('SemesterName').value + "&"+  
+					"SemesterID="+ document.getElementById('SemesterID').value;
+					console.log("data: "+ data);
+                    req.send(data);
+              }
+            </script>
+			</head>
+			
+			
+			<title>moveupanddown</title>
+			<script type="text/javascript">
+			function do_moveupanddown(SemesterID,flag) {
+            var xhttp = new XMLHttpRequest();
+			var result = document.getElementById('result');
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            result.innerHTML = req.responseText ;
+			result.innerHTML = "waiting...";
+            }
+            }
+            xhttp.open('POST', '/moveupanddown' , true);
+			xhttp.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                    var data =  "SemesterID="+ SemesterID+ "&"+ "flag="+ flag;
+					console.log("data: "+ data);
+            xhttp.send(data);
+            }
+            </script>
+            
+				
+			<input type="hidden" value="Ival-{{semCnt[key]}}" name="portal">
+			
+			{% if counter|length!=1 %}
+			| <a onclick="do_moveupanddown({{crs[0]}},'up')" >Move Up</a>
+			{% endif %}
+			
+			
+			{% if (counter|length)!=semCnt[key] %}|
+            
+			<a id="semCnt[key]" onclick="do_moveupanddown({{crs[0]}},'down')">Move Down</a>
+			
+			{% endif %}
+            
+			
+			
+            {% set cours = crs[3] %}
+			{% if cours == 0 %}|
+			<script type="text/javascript">
+			function do_semdel(SemesterID) {
+                var req = new XMLHttpRequest();
+                var result = document.getElementById('result');
+				req.onreadystatechange = function()
+                {
+                  if(this.readyState == 4 && this.status == 200) {
+                    result.innerHTML = "processing...";
+					if(req.responseText.startsWith('Invalid'))
+						result.innerHTML = req.responseText ;
+					else
+						window.location = req.responseURL; 
+					
+                  } else {
+                    result.innerHTML = "waiting...";
+			  	     }
+                }
+                req.open('POST', '/semdel' , true);
+                req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                    var data = "SemesterID="+ SemesterID;
+					console.log("data: "+ data);
+                    req.send(data);
+              }
+            </script>
+		
+			<input type="hidden" value="{{crs[0]}}" name="SemesterID" id="SemesterID">
+			
+			|<a onclick="do_semdel({{crs[0]}})" >Delete</a>
+			{% endif %}
+         
+            ]
+            </td>
+			</tr>
+		</form>
+     
+		 <tr id="SemesterEdit{{crs[0]}}" bgcolor="#EDEDED" style="display: none;">
+            <form action="http://216.32.220.157:203/providers_profile" method="post">
+            <input type="hidden" value="" name="portal">
+            <input type="hidden" value="{{crs[0]}}" name="SemesterID" id="SemesterID">
+            <td>
+            <input class="xoText" type="text" value="{{crs[1]}}" style="width:350;" name="SemesterName" id="SemesterName">
+            </td>
+            <td align="center">{{crs[3]}}</td>
+            <td nowrap="nowrap" align="right">
+            <input class="xoText" type="button" onclick="document.getElementById('SemesterEdit{{crs[0]}}').style.display='none';document.getElementById('SemesterView{{crs[0]}}').style.display='';" style="width:50;" onclick="location.href='http://216.32.220.157:203/providers_profile;"  value="Cancel">
+            <input class="xoText" type="submit" style="width:50px;" onclick="do_semedit()" value="Save">
+            </td>
+            </form>
+        </tr>
+            
+		{% endfor %}
+        <tr><td>&nbsp;</td></tr>
+		{% endfor %}
+        
+    </tbody>
+</table>
+</div>
+<p style="margin-top:4px;"></p>
+<p>
+<table width="100%" cellspacing="0" cellpadding="2" border="0" style="background-color:#CCCCCC;">
+<tbody>
+<tr>
+<td>
+<table id="ETPCoursesHeader" class="xoText" width="100%" cellspacing="0" cellpadding="5" border="0" style="background-color:#bdbdbd;color:#000000;font-weight: bold;" onclick="openETPTab('Courses');" onmouseout="if(document.getElementById('ETPCourses').style.display=='none')this.bgColor='EDEDED';" onmouseover="this.bgColor='DEDEDE';" style="cursor:pointer;font-weight:bold;">
+<tbody>
+<tr>
+<td style="font-weight:bold;">&nbsp;&nbsp;Courses</td>
+<td align="right" style="text-align:right;">
+<img id="ETPCoursesArrow" width="20px" height="20px" border="0" alt="" src="https://www.westchesterputnamonestop.com/images/darrowr.png">
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+<p style="margin-top:4px;"></p>
+<div id="ETPCourses" style="width:100%;display: none; float:left;overflow-y: auto;height: 300px;">
+<table class="xoText" width="100%" cellspacing="0" cellpadding="3" border="0">
+    <tbody>
+        <tr style="font-weight:bold;">
+            <td style="font-weight:bold;">Code</td>
+            <td style="font-weight:bold;">Title</td>
+            <td align="center" style="font-weight:bold;">Offerings</td>
+            <td width="100%" style="font-weight:bold;"> </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+		
+		    <script type="text/javascript">
+			function do_code_title_add() {
+                var req = new XMLHttpRequest();
+                var result = document.getElementById('result');
+				req.onreadystatechange = function()
+                {
+                  if(this.readyState == 4 && this.status == 200) {
+                    result.innerHTML = "processing...";
+					if(req.responseText.startsWith('Invalid'))
+						result.innerHTML = req.responseText ;
+					else
+						window.location = req.responseURL; 
+					
+                  } else {
+                    result.innerHTML = "waiting...";
+			  	     }
+                }
+                req.open('POST', '/code_title_add' , true);
+                req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                    var data = "CourseCode="+ document.getElementById('CourseCode').value + "&"+ "CourseTitle="+ document.getElementById('CourseTitle').value;
+					console.log("data: "+ data);
+                    req.send(data);
+              }
+            </script>
+        	<form action="{{ url_for('code_title_add') }}" method="post" id="code_title_add" >
+            <input type="hidden" value="" name="portal">
+            <td>
+            <input class="xoText" type="text" style="width:100px;" name="CourseCode">
+            </td>
+            <td>
+            <input class="xoText" type="text" style="width:400px;" name="CourseTitle">
+            </td>
+            <td>&nbsp; </td>
+            <td>&nbsp;</td>
+            <td nowrap="nowrap" align="right">
+            <input class="xoText" type="submit" onclick="do_code_title_add()" style="width:50px;" value="Add">
+            </td>
+			</form>
+        </tr>
+		{% for cour in cours %}
+		<tr id="CourseView{{cour[0]}}" bgcolor="#EDEDED" style="">
+            <td>{{cour[2]}}</td>
+            <td>{{cour[1]}}</td>
+            <td align="center">{{cour[3]}}</td>
+            <td>&nbsp;</td>
+            <td nowrap="nowrap" align="right">
+            
+			[
+            <a class="xoLink" onclick="document.getElementById('CourseEdit{{cour[0]}}').style.display='';document.getElementById('CourseView{{cour[0]}}').style.display='none';" style="cursor:pointer;">Edit</a>
+            
+			{% if cour[3] == 0 %}|
+			<script type="text/javascript">
+			function do_code_title_del(CourseID) {
+                var req = new XMLHttpRequest();
+                var result = document.getElementById('result');
+				req.onreadystatechange = function()
+                {
+                  if(this.readyState == 4 && this.status == 200) {
+                    result.innerHTML = "processing...";
+					if(req.responseText.startsWith('Invalid'))
+						result.innerHTML = req.responseText ;
+					else
+						window.location = req.responseURL; 
+					
+                  } else {
+                    result.innerHTML = "waiting...";
+			  	     }
+                }
+                req.open('POST', '/code_title_del' , true);
+                req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                    var data = "CourseID="+ CourseID;
+					console.log("data: "+ data);
+                    req.send(data);
+              }
+            </script>
+				
+			<a onclick="do_code_title_del({{cour[0]}})" >Delete</a>
+			{% endif %}
+            ]
+            </td>
+        </tr>
+		    <script type="text/javascript">
+			function do_code_title_edit() {
+                 var req = new XMLHttpRequest();
+                var result = document.getElementById('result');
+				req.onreadystatechange = function()
+                {
+                  if(this.readyState == 4 && this.status == 200) {
+                    result.innerHTML = "processing...";
+					if(req.responseText.startsWith('{'))
+                    {
+                        res = JSON.parse(req.responseText)
+                        if(res.errormsg)
+                        {
+                            if(res.coursecode)
+                            {
+                                document.getElementById("coursecodeerror").innerHTML = res.coursecode;
+                            }
+                            else{
+                                document.getElementById("coursecodeerror").innerHTML = '';
+                            }
+                            
+                            if(res.coursetitle)
+                            {
+                                document.getElementById("coursetitleerror").innerHTML = res.coursetitle;
+                            }
+                            else{
+                                document.getElementById("coursetitleerror").innerHTML = '';
+                            }
+                        }			              
+                    }
+                    else if(req.responseText.startsWith('Invalid'))
+                    {
+                        result.innerHTML = req.responseText ;
+                    }	
+                    else
+                        window.location = req.responseURL;
+                  } else {
+                    result.innerHTML = "waiting...";
+			  	     }
+                }
+                req.open('POST', '/code_title_edit' , true);
+                req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                    var data = "CourseID="+ document.getElementById('CourseID').value + "&"+"CourseCode="+ document.getElementById('CourseCode').value + "&"+ "CourseTitle="+ document.getElementById('CourseTitle').value;
+					console.log("data: "+ data);
+                    req.send(data);
+              }
+            </script>
+                <tr id="CourseEdit{{cour[0]}}" bgcolor="#EDEDED" style="display: none;">
+            <form action="{{ url_for('code_title_edit') }}" method="post">
+            <input type="hidden" value="" name="portal">
+            <input type="hidden" value="{{cour[0]}}" name="CourseID" id="CourseID">
+            <td>
+            <input class="xoText" type="text" value="{{cour[2]}}" style="width:100px;" id= "coursecode" name="CourseCode">
+			<span style="color:red" id="coursecodeerror"></span><br/>
+            </td>
+            <td>
+            <input class="xoText" type="text" value="{{cour[1]}}" style="width:400px;" id="coursetitle" name="CourseTitle">
+			<span style="color:red" id="coursetitleerror"></span><br/>
+            </td>
+            <td align="center">{{cour[3]}}</td>
+            <td nowrap="nowrap" align="right">
+            <input class="xoText" type="button" onclick="document.getElementById('CourseEdit{{cour[0]}}').style.display='none';document.getElementById('CourseView{{cour[0]}}').style.display='';" style="width:50;" value="Cancel">
+            <input class="xoText" type="submit" style="width:50px;"  onclick="do_code_title_edit()" value="Save">
+            </td>
+            </form>
+        </tr>
+        {% endfor %}
+                <tr><td>&nbsp;</td></tr>
+    </tbody>
+</table>
+</div>
+<p style="margin-top:4px;"></p>
+<p>
+<table cellspacing="0" cellpadding="2" border="0" style="background-color:#CCCCCC" width="100%">
+<tbody>
+<tr>
+<td>
+<table id="ETPCourseOfferingsHeader" class="xoText" width="100%" cellspacing="0" cellpadding="5" border="0" style="background-color:#bdbdbd;color:#000000;font-weight: bold;" onclick="openETPTab('CourseOfferings');" onmouseout="if(document.getElementById('ETPCourseOfferings').style.display=='none')this.bgColor='EDEDED';" onmouseover="this.bgColor='DEDEDE';" style="cursor:pointer;font-weight:bold;">
+<tbody>
+<tr>
+<td style="font-weight:bold;">&nbsp;&nbsp;Course Offerings</td>
+<td align="right" style="text-align:right;">
+<img id="ETPCourseOfferingsArrow" width="20px" height="25px" border="0" alt="" src="https://www.westchesterputnamonestop.com/images/darrowr.png">
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+ <p style="margin-top:4px;"></p>
+<div id="ETPCourseOfferings" style="display: none; width:100%;float:left;overflow-y: auto;height: 800px;">
+	<!--this block should be displayed if the courses and semisters are  not addded prior to course offerings    --> 
+{% if hasCourseandSemester == "N" %}
+	<table class="xoText" width="100%" cellspacing="0" cellpadding="3" border="0">
+	<tbody>
+		<tr>
+			<td>You must add a semester and a course before trying to add a course offering.</td>
+		</tr>
+	</tbody>
+</table>
+{% elif hasCourseandSemester == "Y" %}
+	<!--this block should be displayed if the courses and semisters are addded prior to course offerings    -->
+	<form action="{{ url_for('cors_offer_add') }}" method="post">
+		<table class="xoText" width="100%" cellspacing="0" cellpadding="3" border="0">
+			<tr style="font-weight:bold;">
+				<td style="font-weight:bold;">Add A Course</td>
+				<td style="font-weight:bold;">Section</td>
+				<td style="font-weight:bold;">Start / End</td>
+                <td style="font-weight:bold;">Price</td>
+				<td style="font-weight:bold;">Applicants</td>
+                <td style="font-weight:bold;"> Active</td>
+				<td style="font-weight:bold;">Approved</td>
+				<td> </td>
+            </tr>
+            
+			
+			<input type="hidden" value="Provider" name="portal">
+			<tr>
+				<td valign="top">
+					<select class="xoText" style="width:100px;" id="Semester" name="Semester">
+					<option value="0">Select Semester</option>	
+					{% for sem in selsem %}
+					<option value="{{sem[0]}}">{{sem[1]}}  {{sem[2]}} </option>
+					<span style="color:red" id="semestererror"></span><br/>
+					{% endfor %}
+					</select>
+					<br>
+					
+					<select class="xoText" style="width:100px;" name="Course" id="Course">
+					<option value="">Select Course</option>
+					{% for crs in selcrs %}
+						<option value="{{crs[0]}}">{{crs[1]}} - {{crs[2]}}</option>
+						<span style="color:red" id="courseerror"></span><br/>
+						{% endfor %}						
+					</select>
+				</td>
+				<td valign="top">
+					<input  type="text"   style="width:40px;" name="Section" id="Section">
+					<span style="color:red" id="sectionerror"></span><br/>
+				</td>
+				<td valign="top">
+					<input   type="date"   value="" style="width:120px;text-align:center;" id="StartDate" name="StartDate">
+					<span style="color:red" id="startdateerror"></span>
+				<br>
+					<input   type="date" value=""  style="width:120px;text-align:center;" id="EndDate" name="EndDate">
+					<span style="color:red" id="enddateerror"></span>
+				</td>
+                <td valign="top">
+					<input  type="text"   style="width:40px;text-align:right;" id="CourseCost" name="CourseCost">
+					<span style="color:red" id="coursecosterror"></span><br/>
+				</td>
+                <td valign="top" align="center">0</td>
+                <td valign="top" nowrap="nowrap">
+					<input type="radio" value="1" name="Active" id="Active">
+					Yes
+					<br>
+					<input type="radio" value="0" name="Active" id="Active">
+					No
+				</td>
+				<td valign="top" align="center">No</td>
+			
+			<script type="text/javascript">
+			function do_cors_offer_add() {
+                var req = new XMLHttpRequest();
+                var result = document.getElementById('result');
+				
+				var checkedValues = ("[name^='DayOfWeek']:checked").map(function(){
+             return $(this).val();
+                }).get();
+				
+				req.onreadystatechange = function()
+                {
+                  if(this.readyState == 4 && this.status == 200) {
+                    result.innerHTML = "processing...";
+					if(req.responseText.startsWith('{'))
+                    {
+                        res = JSON.parse(req.responseText)
+                        if(res.errormsg)
+                        {
+                            if(res.semester)
+                            {
+                                document.getElementById("semestererror").innerHTML = res.semester;
+                            }
+                            else{
+                                document.getElementById("semestererror").innerHTML = '';
+                            }
+							
+                            if(res.course)
+                            {
+                                document.getElementById("courseerror").innerHTML = res.course;
+                            }
+                            else{
+                                document.getElementById("courseerror").innerHTML = '';
+                            }
+							if(res.section)
+                            {
+                                document.getElementById("sectionerror").innerHTML = res.section;
+                            }
+                            else{
+                                document.getElementById("sectionerror").innerHTML = '';
+                            }
+							if(res.startdate)
+                            {
+                                document.getElementById("startdateerror").innerHTML = res.startdate;
+                            }
+                            else{
+                                document.getElementById("startdateerror").innerHTML = '';
+                            }
+							if(res.enddate)
+                            {
+                                document.getElementById("enddateerror").innerHTML = res.enddate;
+                            }
+                            else{
+                                document.getElementById("enddateerror").innerHTML = '';
+                            }
+							if(res.coursecost)
+                            {
+                                document.getElementById("coursecosterror").innerHTML = res.coursecost;
+                            }
+                            else{
+                                document.getElementById("coursecosterror").innerHTML = '';
+                            }
+							if(res.dayofweek)
+                            {
+                                document.getElementById("dayofweekerror").innerHTML = res.dayofweek;
+                            }
+                            else{
+                                document.getElementById("dayofweekerror").innerHTML = '';
+                            }
+                            
+                        }			              
+                    }
+                    else if(req.responseText.startsWith('Invalid'))
+                    {
+                        result.innerHTML = req.responseText ;
+                    }	
+                    else
+                        window.location = req.responseURL;
+                  } else {
+                    result.innerHTML = "waiting...";
+			  	     }
+                }
+                req.open('POST', '/cors_offer_add' , true);
+                req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                    var data = "Course="+ document.getElementById('Course').value + "&"+ 
+					           "Semester="+ document.getElementById('Semester').value + "&"+ 
+					           "SemesterName="+ document.getElementById('SemesterName').value + "&"+ 
+					           "CourseTitle="+ document.getElementById('CourseTitle').value + "&"+
+							   "Section="+ document.getElementById('Section').value+ 
+							   "&"+"StartDate="+ document.getElementById('StartDate').value+ 
+							   "&"+"EndDate="+ document.getElementById('EndDate').value"&"+
+							   "CourseCost="+ document.getElementById('CourseCost').value"&"+
+							   "Active="+ document.getElementById('Active').value"&"+
+							   "DayOfWeek="+ document.getElementById('DayOfWeek');
+							   console.log("data: "+ data);
+                               req.send(data);
+              }</script>
+				<td valign="top" nowrap="nowrap" align="right">
+					<input   type="submit" onclick="do_cors_offer_add()" style="width:40px;" value="Add">
+				</td>
+				
+            </tr>
+			<tr>
+				<td colspan="8">
+					Days:
+					<input type="checkbox" value="1" name="DayOfWeek" id="DayOfWeek">
+					Sunday
+					<input type="checkbox" value="2" name="DayOfWeek" id="DayOfWeek" >
+					Monday
+					<input type="checkbox" value="3" name="DayOfWeek" id="DayOfWeek">
+					Tuesday
+					<input type="checkbox" value="4" name="DayOfWeek" id="DayOfWeek">
+					Wednesday
+					<input type="checkbox" value="5" name="DayOfWeek" id="DayOfWeek">
+					Thursday
+					<input type="checkbox" value="6" name="DayOfWeek" id="DayOfWeek">
+					Friday
+					<input type="checkbox" value="7" name="DayOfWeek" id="DayOfWeek">
+					Saturday
+					
+					 <span style="color:red" id="dayofweekerror"></span><br/>
+				</td>
+			</tr>
+		</table>
+	</form>
+    <div>
+	{% if hasCouoffsemCount >0 %}
+        {% for semyear in hasCouoffsem %}
+         
+                <table class="xoText" width="100%" cellspacing="0" cellpadding="3" border="0">
+                    <tr style="font-weight:bold;">
+                        <td style="font-weight:bold;">{{semyear[1]}} {{semyear[2]}} Course </td>
+                        <td style="font-weight:bold;">&nbsp;Section</td>
+                        <td style="font-weight:bold;">&nbsp;&nbsp;Start/End</td>
+                        <td style="font-weight:bold;">&nbsp;&nbsp;Price</td>
+                        <td style="font-weight:bold;">&nbsp;&nbsp;Applicants</td>
+                        <td style="font-weight:bold;">&nbsp;&nbsp;Active</td>
+                        <td style="font-weight:bold;">&nbsp;&nbsp;Approved</td>
+                        <td> </td>
+                    </tr>
+			{% set sessid=semyear[0] %} 			
+			{% for fetchcouses in sesData[sessid] %}
+                    
+                    <input type="hidden" value="Provider" name="portal"/>
+                    <tr bgcolor="#EDEDED" id="CourseSesView{{fetchcouses[0]}}" style="">
+						<td valign="top">
+                        	{{fetchcouses[9]}} {{fetchcouses[0]}}
+                            <br>
+                            <b>Days:</b> 
+							{% set fches=fetchcouses[0] %} 		
+								{% if dysCnt[fches] > 0 %}
+								 
+										{% for daysFetch in sesDys[fches] %}
+											{% set indx=daysFetch[0] %} 	
+											<b>{{WeekDays[indx]}}</b> 
+										{% endfor %}
+										
+										
+										
+								{% endif %}
+                        </td>
+						<td valign="top">{{fetchcouses[7]}}</td>
+                        <td valign="top">
+						{{ fetchcouses[4] }}
+			                <br>
+                            {{ fetchcouses[5] }}
+                        </td>
+						<td align="right" valign="top">{{fetchcouses[3]}}</td>
+						
+						{% set courseSessId=fetchcouses[0] %} 		
+						{% for appCnt in appData[courseSessId] %}
+                        <td style="text-align:center;" valign="top">{{appCnt[0]}}</td>
+												
+                        <td align="center" valign="top">{{fetchcouses[8]}}</td>
+						<td align="center" valign="top">{{fetchcouses[6]}}</td>
+						<td nowrap="nowrap" valign="top">
+                        <input type="button" onclick="document.getElementById('CourseSesEdit1{{fetchcouses[0]}}').style.display='';document.getElementById('CourseSesEdit2{{fetchcouses[0]}}').style.display='';document.getElementById('CourseSesView{{fetchcouses[0]}}').style.display='none';" style="width:50px;" class="xoText" value="Edit">
+													
+							{% if appCnt[0] == 0 %}
+							
+							<script type="text/javascript">
+							function do_cors_offer_del(Course) {
+								var req = new XMLHttpRequest();
+								var result = document.getElementById('result');
+								req.onreadystatechange = function()
+								{
+								  if(this.readyState == 4 && this.status == 200) {
+									result.innerHTML = "processing...";
+									if(req.responseText.startsWith('Invalid'))
+										result.innerHTML = req.responseText ;
+									else
+										window.location = req.responseURL; 
+									
+								  } else {
+									result.innerHTML = "waiting...";
+									 }
+								}
+								req.open('POST', '/cors_offer_del' , true);
+								req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+									var data = "Course="+ Course;
+									console.log("data: "+ data);
+									req.send(data);
+							  }
+							</script>
+							
+							<input type="hidden" value="{{fetchcouses[0]}}" name="Course" id="Course">
+							<input type="submit" onclick="do_cors_offer_del({{fetchcouses[0]}})" style="width:60px;" class="xoText" value="Delete">
+							{% endif %}
+						{% endfor %}
+						</td>
+					</tr>
+					
+					<br>
+					{% for course in get_course %}
+						<form action="{{ url_for('cors_offer_edit') }}" method="post">
+                        <input type="hidden" value="" name="portal">
+                        <input type="hidden" value="{{fetchcouses[0]}}" name="cousesid" id="cousesid">
+                        <tr id="CourseSesEdit1{{fetchcouses[0]}}" style="display:none;" bgcolor="#EDEDED">
+                            <td valign="top">
+                                <select class="xoText" style="width:100px;" name="Course" id="Course">
+                                    <option value="">Select Course</option>
+                                    <option value="{{fetchcouses[1]}}">
+                                        
+										    {{fetchcouses[9]}} {{fetchcouses[0]}}
+											
+                                    </option>
+                                    			
+                                </select>
+                            </td>
+                            <td valign="top">
+                                <input class="xoText" type="text" style="width:40px;" value="{{fetchcouses[7]}}" name="Section" id="Section">
+                            </td>
+                            <td valign="top">
+                                <input class="xoText" type="text" style="width:50px;text-align:center;" name="StartDate" 
+                                    value="{{fetchcouses[4]}}" id="StartDate">
+                                <br>
+                                <input class="xoText" type="text" style="width:50px;text-align:center;" name="EndDate" 
+                                    value="{{fetchcouses[5]}}" id="EndDate">
+                            </td>
+                            <td valign="top">
+                                <input class="xoText" type="text" style="width:40px;text-align:right;" name="CourseCost" value="{{fetchcouses[3]}}" id="CourseCost">
+                            </td>        
+                            <td valign="top" align="center">0</td>
+                            <td valign="top" nowrap="nowrap">
+                                 {% set actst = fetchcouses[8] %}
+                                    
+									{% if actst == 1 %} 
+									<input type="radio" value="1" name="Active" id="Active">
+									      Yes
+									
+									{% elif actst == 0 %} 
+									<br><input type="radio" value="0" name="Active" id="Active">
+									       No
+									{% endif %}
+                            </td>
+							
+                            <td valign="top" align="center">
+                                {% if fetchcouses[6] == 1 %}  Yes  {% else %}  No  {% endif %}
+                            </td>
+                            <td nowrap="nowrap" valign="top">
+                            <input type="button" onclick="document.getElementById('CourseSesEdit1{{fetchcouses[0]}}').style.display='none';document.getElementById('CourseSesEdit2{{fetchcouses[0]}}').style.display='';" style="width:60px;" class="xoText" value="Cancel">
+                                <br>
+						    <script type="text/javascript">
+							function do_cors_offer_edit() {
+								var req = new XMLHttpRequest();
+								var result = document.getElementById('result');
+								req.onreadystatechange = function()
+								{
+								  if(this.readyState == 4 && this.status == 200) {
+									result.innerHTML = "processing...";
+									if(req.responseText.startsWith('Invalid'))
+										result.innerHTML = req.responseText ;
+									else
+										window.location = req.responseURL; 
+									
+								  } else {
+									result.innerHTML = "waiting...";
+									 }
+								}
+								req.open('POST', '/cors_offer_edit' , true);
+								req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+								var data = "Course="+ document.getElementById('Course').value + "&"+ 
+					           "cousesid="+ document.getElementById('cousesid').value + "&"+ 
+					           "Section="+ document.getElementById('Section').value + "&"+ 
+					           "StartDate="+ document.getElementById('StartDate').value + "&"+ 
+					           "EndDate="+ document.getElementById('EndDate').value + "&"+  
+					           "CourseCost="+ document.getElementById('CourseCost').value + "&"+
+                               "Active="+ document.getElementById('Active').value + "&"+
+                               "DayOfWeek="+ document.getElementById('DayOfWeek').value;
+								console.log("data: "+ data);
+								req.send(data);
+							  }
+							</script>
+                      <input class="xoText" type="submit" style="width:50px;" onclick="do_cors_offer_edit()" value="Save">
+                            </td>
+                        </tr>
+                      <tr id="CourseSesEdit2{{fetchcouses[0]}}" style="display:none;" bgcolor="#EDEDED">
+                    <td colspan="8">
+					Days:
+					<input type="checkbox" value="1" name="DayOfWeek" id="DayOfWeek">
+					Sunday
+					<input type="checkbox" value="2" name="DayOfWeek" id="DayOfWeek" >
+					Monday
+					<input type="checkbox" value="3" name="DayOfWeek" id="DayOfWeek">
+					Tuesday
+					<input type="checkbox" value="4" name="DayOfWeek" id="DayOfWeek">
+					Wednesday
+					<input type="checkbox" value="5" name="DayOfWeek" id="DayOfWeek">
+					Thursday
+					<input type="checkbox" value="6" name="DayOfWeek" id="DayOfWeek">
+					Friday
+					<input type="checkbox" value="7" name="DayOfWeek" id="DayOfWeek">
+					Saturday
+				</td>
+                        </tr>
+                    </form>
+				{% endfor %}
+				{% endfor %}
+                </table>
+	    {% endfor %}
+      {% endif %}
+	{% endif %}
+				
+            
+    </div>
+
+</div>
+</div> 
+
+ 
+<p style="margin-top:4px;"></p>
+<p>
+<table cellspacing="0" cellpadding="2" border="0" style="background-color:#CCCCCC" width="100%">
+<tbody>
+<tr>
+<td>
+<table id="ETPApprovedITAsHeader" class="xoText" width="100%" cellspacing="0" cellpadding="5" border="0" style="background-color:#bdbdbd;color:#000000;font-weight: bold;" onclick="openETPTab('ApprovedITAs');" onmouseout="if(document.getElementById('ETPCourseOfferings').style.display=='none')this.bgColor='EDEDED';" onmouseover="this.bgColor='DEDEDE';" style="cursor:pointer;font-weight:bold;">
+<tbody>
+<tr>
+<td style="font-weight:bold;">&nbsp;&nbsp;Approved ITAs</td>
+<td align="right" style="text-align:right;">
+<img id="ETPApprovedITAsArrow" width="20px" height="25px" border="0" alt="" src="https://www.westchesterputnamonestop.com/images/darrowr.png">
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+<p style="margin-top:4px;"></p>
+<div id="ETPApprovedITAs" style="float: left; overflow-y: auto; height: 800px;display: none;">
+<table id="ETPApprovedITAsView" class="xoText" width="100%"  cellspacing="0" cellpadding="3" border="0">
+<tbody>
+<tr><td>&nbsp; </td></tr>
+<tr>
+	<td><strong>Full Name</strong></td>
+    <td><strong>Course Title</strong></td>
+    <td><strong>StartDate </strong></td><td>&nbsp;</td>
+    <td><strong>EndDate </strong></td>
+    <td>&nbsp;</td>
+</tr>
+<tr><td>&nbsp; </td></tr>
+
+
+
+{% for ita in approveditas %}
+	<tr>
+    	<td>{{ita[6]}} {{ita[7]}}</td>
+        <td>{{ita[5]}}</td>
+        <td>{{ita[3]}}</td><td>&nbsp;</td>
+        <td>{{ita[4]}}</td>
+		<td><a href="https://www.westchesterputnamonestop.com/providers/downloadmail.php?itappid='{{ita[0]}}">Download</a></td>
+        <td><a href="https://www.westchesterputnamonestop.com/job-seeker/services/ita/docx/consets_html.php?id='{{ita[0]}}" target="_blank">View Application</a></td>
+    </tr>
+
+{% endfor %}
+	
+
+
+</tbody>
+</table>
+</div>
+<p style="margin-top:4px;"></p>
+<script language="javascript">
+function openETPTab(i) {
+if (document.getElementById('ETP'+i).style.display=='none') {
+document.getElementById('ETP'+i).style.display='';
+document.getElementById('ETP'+i+'Arrow').src='https://www.westchesterputnamonestop.com/images/darrowd.png';
+document.getElementById('ETP'+i+'Header').bgColor='DEDEDE';
+}
+else {
+document.getElementById('ETP'+i).style.display='none';
+document.getElementById('ETP'+i+'Arrow').src='https://www.westchesterputnamonestop.com/images/darrowr.png';
+document.getElementById('ETP'+i+'Header').bgColor='EDEDED';
+}
+}
+function ChangeETPView(i) {
+document.getElementById('ETP'+i+'View').style.display=(document.getElementById('ETP'+i+'View').style.display=='none')?'':'none';
+document.getElementById('ETP'+i+'Edit').style.display=(document.getElementById('ETP'+i+'View').style.display=='none')?'':'none';
+}
+</script>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<img width="1" height="20" border="0" alt="" src="https://www.westchesterputnamonestop.com/images/spacer.gif">
+</td>
+</tr>   
+</td>
+</tr>
+<tr>
+<td>
+<img width="1" height="20" border="0" alt="" src="https://www.westchesterputnamonestop.com/images/spacer.gif">
+</td>
+</tr>
+</tbody>
+</table>
+<script language="javascript" type="text/javascript">
+$(document).ready(function(e) {
+    $('#StartDate').datepicker();
+	$('#EndDate').datepicker();
+});
+</script>		 
+</div>			
+<div class="col-lg-2"  >
+<style>
+    .XOQuickLink{
+        color:#fff;
+    }    
+</style>
+<div style="background-color: #C8C8C8; outline: #C8C8C8 solid 10px; padding:8px;">
+<h4 style="color: #fff;">QUICK LINKS</h4>
+<a class="XOQuickLink" href="/about "><span class="xoSmall">&raquo;</span> What Is One-Stop?</a><br>
+<a class="XOQuickLink" href="/login_form.php?user=Job Seeker&&redirect=/upload_resume/upload.php?id=a "><span class="xoSmall">&raquo;</span> Post a Resume</a><br>
+<a class="XOQuickLink" href="/login_form.php?user=Employer "><span class="xoSmall">&raquo;</span> Post a Job</a><br>
+<a class="XOQuickLink" href="/workshop/"><span class="xoSmall">&raquo;</span> Workshops & Training</a><br>
+<a class="XOQuickLink" href="/index.php/about/links-resources"><span class="xoSmall">&raquo;</span> Links & Resources</a><br>
+<!--<a class="XOQuickLink" href="/index.php/about/faqs "><span class="xoSmall">&raquo;</span> FAQ's </a><br>-->
+<a class="XOQuickLink" href="/index.php/about/contact-us "><span class="xoSmall">&raquo;</span> Contact Us </a>              
+</div>
+<br>
+<br> <div style="outline: #f6f7f9 solid 10px; padding:5px;">
+<form action="/job-seeker/index.php?pid=5&user=Job Seeker" method="post">
+    <h4>Search</h4>
+     Enter Keywords:
+     <input type="text" style="width:125px;" class="xoText" name="q" value="">
+     Select Sector
+     <select style="width:120px;" class="xoText" name="s" >
+        <option value="0">All sectors</option>
+                        <option value="1" >Green</option>
+
+                         <option value="2" >Healthcare</option>
+
+                         <option value="3" >Hospitality</option>
+
+                         <option value="4" >Information Technology</option>
+
+                         <option value="5" >Biotech</option>
+
+                         <option value="6" >Not For Profit</option>
+
+                         <option value="7" >Advanced Manufacturing</option>
+
+                         <option value="8" >Other</option>
+
+         
+    </select><br><br>
+     <input type="submit" class="btn" value="Search Jobs" style="background-color: #91aed5;">
+</form>	
+</div>
+<br><br></div> 
+</div>
+</div>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,60 @@
+
+
+
+
+<!DOCTYPE html>
+        <html>
+
+<head>
+   <title>login</title>
+   <script type="text/javascript">
+      function do_ajax() {
+        var req = new XMLHttpRequest();
+        var result = document.getElementById('result');
+	var formData = new FormData();
+
+	formData.append("email", document.getElementById('Email').value);
+	formData.append("password", document.getElementById('Password').value);
+
+        req.onreadystatechange = function()
+        {
+          if(this.readyState == 4 && this.status == 200) {
+		if(error)
+		{
+		    var output = document.getElementById('error');
+		    output.innerHTML = error;
+		}
+      
+          } else {
+            result.innerHTML = "waiting...";
+                             }
+        }
+        req.open('POST', '/emploginvalidate' , true);
+        req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+        req.send(formData);
+      }
+   </script>
+</head>
+<body>
+
+ {% if error %}
+      <p><strong>Error:</strong> {{ error }}
+      {% endif %}
+
+
+
+   <form>
+      <input type="hidden" id="redirect" value="0"><br/>
+      <input type="hidden" id="authenticate" value="Employer"><br/>
+      <label>Email<input type="text" id="Email" value=""></label><br/>
+      <label>Password<input type="text" id="Password" value=""></label><br/>
+      <label style="color:red" id="error"></label>
+
+
+ <button type="submit" id="btn-post" onclick="do_ajax();">Click</button>
+              <div id="result"></div>
+                          </form>
+          </body>
+        </html>
+~
+

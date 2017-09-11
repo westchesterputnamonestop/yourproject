@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Send an SMS</title>
+    </head>
+    <body>
+        <form action="{{ url_for('message') }}"   method="POST">
+            Cell phone number: <input name="phone_number" type="text" />
+            Text in here: <input name="body" type="text" />
+            <button type="submit">Send Text</button>
+        </form>
+        </script>
+    </body>
+</html>

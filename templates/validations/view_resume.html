@@ -1,0 +1,53 @@
+<html>
+
+<body>
+
+
+
+<p>&nbsp;</p>
+
+    <p class="xoSmall"><a class="xoLink" href="  ">Home</a> &raquo; 
+
+            <a class="xoLink" href="">Employer</a> &raquo; 
+
+            <a class="xoLink" href="">Search Resumes</a> &raquo; 
+
+            <a class="xoLink" href="">Resume history</a> &raquo; jobseeker</p>
+
+        
+
+        <p class="xoBig"><h2>{{result[3]}}  {{result[4]}}'s Profile & Resume</h2></p>
+
+        <p><table border="0" cellpadding="3" cellspacing="0" class="xoText">
+
+		<tr style="font-weight:bold;"><td>Title</td><td>Uploaded</td><td nowrap="nowrap">Has Cover Sheet?</td><td>&nbsp;</td></tr>
+
+	      		<tr bgcolor="#EDEDED">
+
+                    <td width="100%"> {{result[0]}}</td>
+
+                    <td nowrap="nowrap"> {{result[1]}}</td>
+
+                    <td align="center">No</td>
+
+	            <td nowrap="nowrap">[ <a href="{{url_for('view_resumepdf',jid=result[2])}}" > view</a>  ]</td>
+
+		</tr>
+
+			 </table></p>
+
+    
+
+<!--Modules ContentBottom-->
+
+            
+
+<!--End Modules ContentBottom-->
+
+
+
+</div>
+
+				
+</body>
+</html>

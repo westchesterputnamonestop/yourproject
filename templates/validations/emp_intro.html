@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+        <html>
+          <head>
+            <title>emp_intro</title>
+            <script type="text/javascript">
+              function do_ajax() {
+                var req = new XMLHttpRequest();
+                var result = document.getElementById('result');
+                req.onreadystatechange = function()
+                { 
+                  if(this.readyState == 4 && this.status == 200) {
+                    result.innerHTML = this.responseText;
+                  } else {
+                    result.innerHTML = "waiting...";
+                  }
+                }
+                req.open('POST', '/search_resumes' , true);
+                req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                req.send("employerprofileid="+  document.getElementById('Empprofileid').value);
+				</script>
+				
+				
+				
+				
+				
+				</head>
+				<body>
+				
+				
+				<div id="container_logo_menu_mobile" class="container" ><div class="wrapper960">
+<div id ="logo_mobile" style="background-color:#ffffff" >
+	<a href= {{ url_for('emplogin') }}  class="btn btn-info" style="background-color:#b2bb1c; border:0" role="button"><strong>Employer Login</strong> </a>
+		
+		
+
+				
+				
+				
+				
+				<h2>
+		<a href=""> Welcome to One-Stop</a>
+		</h2>
+
+				
+	<p><img style="margin: 0px 0px 5px 15px; float: right;" title="Employer" src="https://www.westchesterputnamonestop.com/images/primary/employer.png" alt="Employer" />The Westchester-Putnam One-Stop is a place that connects employers with prospective employees.</p>
+	<p>As a registered local employer you can access this site to connect with job-seekers in the Westchester/Putnam County area and be provided with access to their resumes and post jobs to recruit qualified candidates. We can help you respond to the demand for the skilled workers you are looking for, and identify trends that will inform, train, build and maintain a skilled workforce.</p>
+	<p><strong>It's easy to get started. Simply create an account.</strong></p>
+
+<p><a href=" "> <img title="Create an account" onmouseover="this.src='https://www.westchesterputnamonestop.com/images/assets/createaccount_on.jpg';" onmouseout="this.src='https://www.westchesterputnamonestop.com/images/assets/createaccount.jpg';" src="https://www.westchesterputnamonestop.com/images/assets/createaccount.jpg" alt="Create an account" /></a>&nbsp;&nbsp;<a href="/login?user=employer"> <img title="Post jobs" onmouseover="this.src='https://www.westchesterputnamonestop.com/images/assets/postjobs_on.jpg';" onmouseout="this.src='https://www.westchesterputnamonestop.com/images/assets/postjobs.jpg';" src="https://www.westchesterputnamonestop.com/images/assets/postjobs.jpg" alt="Post jobs" /> </a></p> 
+<p><h2>Recent Resume Postings</h2></p>
+   <table border="0" cellpadding="3" cellspacing="0" class="xoText" width="100%">
+			<tr style="font-weight:bold;"><td style="font-weight:bold;">Sectors</td><td style="font-weight:bold;">Location &nbsp;</td><td style="font-weight:bold;">Last Resume Update</td><td>&nbsp;</td></tr>     
+  {% for a in a %}
+
+			<tr bgcolor='#EDEDED'><td>{{a[0]}}</td><td>{{a[1]}},{{a[2]}}</td><td>{{a[3]}}</td>
+			       <td align='right' nowrap='nowrap'>
+                       
+                            <form method="post" action="/emplogin">
+                                        <input type="hidden" name="redirect" value=" ">
+                                        <input type="hidden" name="user" value=" ">
+                                        <input type="submit" value="[ Login To View ]" style="border:0px;background: none repeat; cursor: pointer; color:#648CBC">
+                                        
+                                    </form>
+                                   
+                             
+                        </td>           
+			</tr>
+			
+			
+		
+			</tr>
+									
+								
+    
+    {% endfor %}
+
+</table>
+                                 
+        <br></br>
+
+
+
+
+
+        <p><a href= {{ url_for('search_resumes') }}  class="xoLink">View more resumes &raquo;</a></p>
+
+
+
+		   
+		   <body>
+		   <html>
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		  
