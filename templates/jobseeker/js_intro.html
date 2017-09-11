@@ -1,0 +1,155 @@
+
+
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<!--Begin Web_Stats -->
+
+<script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
+
+<title>Onestop Jobseeker</title>
+</head>
+<body>
+<div class="container" style="">
+<div class="row">
+<div class="col-lg-6" >
+<a href="/"><img src="../../images/logo.png" width="370px" style="margin-left:-18px;padding-top:11px;padding-left:5px;"></a>
+</div>
+<div  align="right" class="col-lg-6" style="margin-top:8px; "> <!-- pqp4 changed position from absolute -->
+        <a href="" class="btn" style="color:#fff;background-color:#b2bb1c; border:0" role="button"><strong>Employer Login</strong> </a>
+		<a href="/login" class="btn" style="color:#fff;background-color:#91aed5; border:0 " role="button"><strong>Job Seeker Login</strong> </a><br>
+		<font style="color:#000000; font-size:90%">New user?</font> <u>
+		<a href=""><font style="color:#000; font-size:90%">Employer sign up.</u></font></a> 
+		<a href="/jsregister"><font style="color:#000; font-size:90%"><u>Job Seeker sign up.</u></font></a></font>
+                </div>
+
+</div>
+<hr style="outline: #eeeeee solid thin;">
+<div class="row" >
+<div class="col-lg-10">
+    <div class="page-header">
+<h2>
+<a href="/"> Welcome to One-Stop</a>
+</h2>
+</div>
+	<p><img style="margin: 0px 0px 5px 15px; float: right;" title="Job seeker" src="../images/primary/jobseeker.png" alt="Job seeker" />One-Stop is a place that connects people who want jobs to businesses that have them.</p>
+<p>We are a powerful online destination to quickly and easily find great local jobs in Westchester and Putnam Counties. We offer all the resources you need to land your dream job, including a robust platform to search jobs, alerts to keep you up-to-date on the latest opportunities,resources to advance your career, and more. Post your resume and get noticed by top Westchester/Putnam employers today.</p>
+<p><strong>It's easy to get started. Simply create an account.</strong></p>
+<br />
+<p><a href="/jsregister"> <img title="Create an account" onmouseover="this.src='../images/assets/createaccount_on.jpg';" onmouseout="this.src='http://ostest.westchestergov.com/images/assets/createaccount.jpg';" src="../images/assets/createaccount.jpg" alt="Create an account" /></a>&nbsp;&nbsp;
+    <a href="/addresume"> <img title="Post my resume" onmouseover="this.src='../../images/assets/postresume_on.jpg';" onmouseout="this.src='http://ostest.westchestergov.com/images/assets/postresume.jpg';" src="../../images/assets/postresume.jpg" alt="Post my resume" /></a></p>
+
+
+<p class="xoBig"><h2>Recent Job Postings</h2></p>
+<p>
+	<table border="0" cellpadding="3" cellspacing="0" width="100%">
+		<tbody>
+			<tr style="font-weight:bold;">
+                <td style="font-weight:bold;">Job title</td>
+                <td style="font-weight:bold;">Level</td>
+                <td style="font-weight:bold;">Location</td>
+                <td style="font-weight:bold;">Published</td>
+                <td>&nbsp;</td>
+				</tr>
+				{% for row in recentjob %}
+			<tr bgcolor="#EDEDED">
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td align="right" nowrap="nowrap">
+                    <p><a href="{{ url_for('job_description',variable=row[0]) }}">{{ job_details }}</a></p>
+                </td>
+			</tr>
+			{% endfor %}
+		</tbody>                
+	</table>
+</p>
+<p>
+    <!-- /jobseeker/jobpostings -->
+    <a href="/jobsearch" class="xoLink">View more job postings &raquo;</a>
+</p></div>
+    <div class="col-lg-2"  >
+<style>
+    .XOQuickLink{
+        color:#fff;
+    }
+</style>
+<br>
+<br>
+
+<div style="background-color: #91aed5; outline: #91aed5 solid 10px; padding:8px;">  
+<h4 style="color:#fff;">Quick Links</h4>
+<a href="" class="XOQuickLink" ><span> &raquo; </span>Post your resume</a><br>
+<a href="" class="XOQuickLink" ><span class="xoSmall"> &raquo; </span>Update Your Profile</a><br>
+<a href="/jobsearch" class="XOQuickLink" > <span>&raquo;</span> Search Jobs by Industry</a><br>
+<a href="" class="XOQuickLink" ><span> &raquo;</span> Workshops &amp; Training</a><br>
+
+<a href="" class="XOQuickLink" ><span> &raquo;</span> My Workshops</a><br>
+<a href="" class="XOQuickLink" ><span> &raquo;</span> Training Opportunities </a><br>
+    
+<a href='' class="XOQuickLink" ><span> &raquo; </span>Links & Resources</a>   
+</div>
+<br>
+<br> <div style="outline: #f6f7f9 solid 10px; padding:5px;">
+<form action="/jobsearch" method="post">
+    <h4>Search</h4>
+     Enter Keywords:
+     <input type="text" style="width:125px;" class="xoText" name="q" value="">
+     Select Sector
+     <select style="width:120px;" class="xoText" name="s" >
+        <option value="0">All sectors</option>
+                        <option value="1" >Green</option>
+
+                         <option value="2" >Healthcare</option>
+
+                         <option value="3" >Hospitality</option>
+
+                         <option value="4" >Information Technology</option>
+
+                         <option value="5" >Biotech</option>
+
+                         <option value="6" >Not For Profit</option>
+
+                         <option value="7" >Advanced Manufacturing</option>
+
+                         <option value="8" >Other</option>
+
+         
+    </select><br><br>
+     <input type="submit" class="btn" value="Search Jobs" style="background-color: #91aed5;">
+</form>	
+</div>
+<br><br>
+
+<div style="outline: #91aed5; outline: #f6f7f9 solid 10px; padding:8px;">
+        <form action="/login" method="post">
+            <input type="hidden" name="redirect" value="">
+            <input type="hidden" name="authenticate" value="Job Seeker"> 
+            <h4>Job Seeker Login</h4> 
+             Email:
+                                        <input type="text" style="width:125px;" class="xoText" name="Email"/>
+        
+            Password:
+            <input type="password" style="width:125px;" class="xoText" name="Password"><br><br>
+            <input type="submit" class="btn" value="Login" style="background-color: #91aed5;"><br>
+             &raquo; <a class="xoLink" href="">Forgot password?</a><br>
+             &raquo; <a class="xoLink" href="/jsregister">Create account</a>
+            </form>
+
+    
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
