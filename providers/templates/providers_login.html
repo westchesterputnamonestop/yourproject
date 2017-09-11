@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />  
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<title>Westchester Putnam One-Stop Training Provider</title>
+</head>
+<body>
+<div class="container" style="">
+<div class="row">
+<div class="col-lg-6" >
+<a href="/"><img src="https://www.westchesterputnamonestop.com/images/logo.png" width="370px" style="margin-left:-18px;padding-top:11px;padding-left:5px;"></a>
+</div>
+<div  align="right" class="col-lg-6" style="margin-top:8px; "> <!-- pqp4 changed position from absolute -->
+                                  <a href="/providers_login" class="btn" style="background-color: #FE9A2E; color:#fff;">Provider Login</a>
+               </div>
+
+</div>
+<hr style="outline: #eeeeee solid thin;">
+<div class="row" >
+   <div class="col-lg-10">
+	
+
+
+<table class="xoText" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+<tr>
+<td>
+<div style="position:relative;">
+    <div class="page-header">
+<h2>
+<a href="/providers"> Training Provider</a>
+</h2>
+</div>
+<p class="xoSmall">
+<a class="xoLink" href="/"> Home &raquo;</a>
+<a class="xoLink" href="/providers/index.php?pid=">Training Providers &raquo;</a> 
+Login to WPOS ETP Portal
+</p>
+<!-- this block has to be isplaye after user logof rom the providers -->
+<p><img width="1" height="20" border="0" alt="" src="https://www.westchesterputnamonestop.com/images/spacer.gif"></p>
+<!--  this block has to be displayed when the user gives incorrect password  -->
+
+<!--this block has to be displayed when user tries to login with unregistered email id   -->
+<!--block:email message , this block has to be displayed when the user requests for forget password in providers_forgotpwd.php page -->
+
+
+<!--block:email message , this block has to be displayed Input needed!!  -->
+
+
+<p align="center">
+<head>
+            <title>providers_login</title>
+            <script type="text/javascript">
+              function do_ajax() {
+                var req = new XMLHttpRequest();
+                var result = document.getElementById('result');
+                req.onreadystatechange = function()
+                { 
+                  if(this.readyState == 4 && this.status == 200) {
+                    result.innerHTML = "processing...";
+					if(req.responseText.startsWith('Invalid'))
+						result.innerHTML = req.responseText ;
+					else
+						window.location = req.responseURL; 
+					
+                  } else {
+                    result.innerHTML = "waiting...";
+			  	     }
+                }
+                req.open('POST', '/providers_login' , true);
+                req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                    var data = "redirect="+ document.getElementById('redirect').value + "&"+ "authenticate="+ document.getElementById('authenticate').value + "&"+ "portal="+ document.getElementById('portal').value + "&"+ "login="+ document.getElementById('login').value + "&"+ "Email="+ document.getElementById('Email').value + "&"+ "Password="+ document.getElementById('Password').value ;
+                    req.send(data);
+              }
+            </script>
+          </head>
+          <body>
+            <form action="index" method="post" id="providers_login">
+             <input type="hidden" id="redirect" value="0"><br/><input type="hidden" id="authenticate" value="Provider"><br/>
+			 <input type="hidden" id="portal" value="0"><br/>
+			 <input type="hidden" id="login" value="0"><br/>
+			 <label>Email<input type="text" id="Email" value=""></label><br/>
+			 <label>Password<input type="text" id="Password" value=""></label><br/>
+              <button type="button" id="btn-post" onclick="do_ajax();">Click</button>
+              <div id="result"></div>
+			  <tr>
+<td colspan="2">
+<a class="xoSmall" style="color:#648CBC">&raquo; </a><a class="xoLink" href="/providers/index.php?pid=1"> New user? Create an WPOS ETP account.</a>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<a class="xoSmall" style="color:#648CBC;">&raquo; </a><a class="xoLink" href="/providers/index.php?pid=4">Forgot your password?</a>
+</td>
+</tr>
+            </form></body>
+</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<img width="1" height="20" border="0" alt="" src="https://www.westchesterputnamonestop.com/images/spacer.gif">
+</td>
+</tr>
+</tbody>
+</table>		 
+</div>			
+<div class="col-lg-2"  >
+<style>
+    .XOQuickLink{
+        color:#fff;
+    }    
+</style>
+<div style="background-color: #C8C8C8; outline: #C8C8C8 solid 10px; padding:8px;">
+<h4 style="color: #fff;">QUICK LINKS</h4>
+<a class="XOQuickLink" href="/about "><span class="xoSmall">&raquo;</span> What Is One-Stop?</a><br>
+<a class="XOQuickLink" href="/login_form.php?user=Job Seeker&&redirect=/upload_resume/upload.php?id=a "><span class="xoSmall">&raquo;</span> Post a Resume</a><br>
+<a class="XOQuickLink" href="/login_form.php?user=Employer "><span class="xoSmall">&raquo;</span> Post a Job</a><br>
+<a class="XOQuickLink" href="/workshop/"><span class="xoSmall">&raquo;</span> Workshops & Training</a><br>
+<a class="XOQuickLink" href="/index.php/about/links-resources"><span class="xoSmall">&raquo;</span> Links & Resources</a><br>
+<!--<a class="XOQuickLink" href="/index.php/about/faqs "><span class="xoSmall">&raquo;</span> FAQ's </a><br>-->
+<a class="XOQuickLink" href="/index.php/about/contact-us "><span class="xoSmall">&raquo;</span> Contact Us </a>              
+</div>
+<br>
+<br> <br />
+
+<div style="outline: #f6f7f9 solid 10px; padding:5px;">
+<form action="/job-seeker/index.php?pid=5&user=Job Seeker" method="post">
+    <h4>Search</h4>
+     Enter Keywords:
+     <input type="text" style="width:125px;" class="xoText" name="q" value="">
+     Select Sector
+     <select style="width:120px;" class="xoText" name="s" >
+        <option value="0">All sectors</option>
+                        <option value="1" >Green</option>
+
+                         <option value="2" >Healthcare</option>
+
+                         <option value="3" >Hospitality</option>
+
+                         <option value="4" >Professional Services</option>
+
+                         <option value="5" >Biotech</option>
+
+                         <option value="6" >Not For Profit</option>
+
+                         <option value="7" >Manufacturing</option>
+
+                         <option value="8" >Other</option>
+
+         
+    </select><br><br>
+     <input type="submit" class="btn" value="Search Jobs" style="background-color: #91aed5;">
+</form>	
+</div>
+<br><br></div> 
+</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,442 @@
+
+
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />  
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<!--Begin Web_Stats -->
+<script type="text/javascript">
+  var userip;
+  var date = new Date().getTime();
+  var vardate = "&field3=";
+  var findate = vardate.concat(date);
+</script>
+<script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
+<script type="text/javascript">
+window.onload = function(){
+var myloc = window.location.href;
+//document.write(myloc)
+var http = new XMLHttpRequest();
+var url = "http://www.westchestergov.com/webstats/stats.php";
+var params = "field1=";
+var params2 = "&field2=";
+var finalparam1 = params.concat(myloc);
+var finalparam2 = params2.concat(userip);
+var finalparam3 = finalparam1.concat(finalparam2);
+var finalparam = finalparam3.concat(findate);
+
+http.open("POST", url, true);
+http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+http.onreadystatechange = function() {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) {
+        //alert(http.responseText);
+    }
+}
+http.send(finalparam);
+};
+</script>
+<!--End Web_Stats-->
+<title>Westchester Putnam One-Stop Training Provider</title>
+</head>
+<body>
+<div class="container" style="">
+<div class="row">
+<div class="col-lg-6" >
+<a href="/"><img src="https://www.westchesterputnamonestop.com/images/logo.png" width="370px" style="margin-left:-18px;padding-top:11px;padding-left:5px;"></a>
+</div>
+
+</div>
+<hr style="outline: #eeeeee solid thin;">
+<div class="row" >
+   <div class="col-lg-10">
+	<link type="text/css" href="/css/jquery-ui-1.8.16.custom.css" rel="stylesheet"  />
+<script type="text/javascript" src="/scripts/jquery-1.4.4.min.js"></script>
+<script src="/scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/scripts/jquery.1.6.validate.min.js"></script>
+<script src="/scripts/jquery.maskedinput.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(e) {
+		$("input[name='Phone']").mask("(999) 999-9999");
+	});
+
+	$(function(){
+		jQuery.validator.addMethod("checkPhone", function(value, element) {
+				var phoneReg = /^(\([0-9]{3}\) )[0-9]{3}-[0-9]{4}$/;
+				return this.optional(element) || phoneReg.test(value);
+			}, "* You have entered an invalid number.  The number must be 10 digits not alphabets in length and contain the 3 digit area code.  Please re-enter ");
+
+		//form validation rules
+		$("#register-form").validate({
+			rules: {
+				ProviderName:"required", 
+				Address: "required",
+				City: "required",
+				State: "required",
+                                Zip: {required: true, number: true},
+				Phone: {
+					required: true,
+					checkPhone: true
+				},
+				BusinessName: "required", 
+				IDValue:"required", 
+				CorporateName:"required",
+				FirstName: "required",
+				LastName: "required",
+				Email: {
+					required: true,
+					email: true
+				},
+			   DesiredPassword:{
+					required: true,
+					minlength: 5
+				},
+			   ConfirmPassword :{
+					required: true, equalTo: "#DesiredPassword", minlength: 5
+								}, 
+			},
+			messages: {
+				ProviderName:"Please enter your School Name", 
+				Address: "Please enter your Address",
+				City: "Please enter your City",
+				State: "Please enter your State",
+                                Zip: "Please enter Zip in numerics and should be 5 digits long",
+				Phone: {required: "Please enter your Phone number", checkPhone: "You have entered an invalid number.  The number must be 10 digits not alphabets in length and contain the 3 digit area code.  Please re-enter."},
+				BusinessName: "Please enter your Business Name",
+				IDValue: "Please enter your EIN Number",  
+				CorporateName: "Please enter your Corporate Name as per W9",
+				FirstName: "Please enter your firstname",
+				LastName: "Please enter your lastname",
+				Email: "Please enter a valid Email address",
+			   DesiredPassword:{
+					required: "Please Enter Password",
+					minlength: "Your password must be at least 5 characters long",
+				},
+			   ConfirmPassword :{
+					required: "Please Enter Confirm Password",
+					minlength: "Your Confirm Password must be at least 5 characters long",
+					equalTo: "Please enter Same password in DesiredPassword And ConfirmPassword", 
+				}, 
+				
+				
+			},
+			submitHandler: function(form) {
+				form.submit();
+			}
+		});
+	});
+</script>
+<style type="text/css">
+ #register-form  label.error {
+    color: #FB3A3A;
+    display: inline-block;
+    margin: 4px 0 5px 5px;
+    padding: 0;
+    text-align: left;
+    }
+</style>
+
+<table class="xoText" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+    <tr>
+<td>
+<img width="1" height="20" border="0" alt="" src="http://ostest.westchestergov.com/images/spacer.gif">
+</td>
+</tr>
+<tr>
+<td>
+<div style="position:relative;">
+<p class="xoSmall">
+<a class="xoLink" href="/"> Home &raquo</a>
+<a class="xoLink" href="/providers/index.php?pid=">Training Providers &raquo</a>
+Create WPOS ETP Account
+</p>
+<div class="page-header">
+<h2>Register to be a Training Provider</h2>
+</div>
+<p>By providing us with the information below, you will gain access to the WPOS ETP account area. Once you have filled out the information, you will be able to provide course offerings that would be eligible for ITA funding. Your account will be reviewed and approved accordingly.</p>
+
+
+<p align="center">
+
+<p>&nbsp;</p>
+<table class="xoText" cellspacing="0" cellpadding="3" border="0">
+
+<tbody>
+<title>do_providers_reg</title>
+            <script type="text/javascript">
+              function do_ajax() {
+                var req = new XMLHttpRequest();
+                var result = document.getElementById('result');
+                req.onreadystatechange = function()
+                { 
+                  if(this.readyState == 4 && this.status == 200) {
+                    result.innerHTML = this.responseText;
+                  } else {
+                    result.innerHTML = "waiting...";
+                  }
+                }
+                req.open('POST', '/providers_reg' , true);
+                req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                    var data = "portal="+ document.getElementById('portal').value + "&"+ 
+					"profile_id="+ document.getElementById('profile_id').value + "&"+ 
+					"ProviderName="+ document.getElementById('ProviderName').value + "&"+
+					"Address="+ document.getElementById('Address').value + "&"+ 
+					"City="+ document.getElementById('City').value + "&"+ 
+					"State="+ document.getElementById('State').value + "&"+ 
+					"Zip="+ document.getElementById('Zip').value + "&"+ 
+					"Phone="+ document.getElementById('Phone').value + "&"+ 
+					"Website="+ document.getElementById('Website').value + "&"+ 
+					"BusinessName="+ document.getElementById('BusinessName').value + "&"+ 
+					"CorporateName="+ document.getElementById('CorporateName').value + "&"+ 
+					"IDType="+ document.getElementById('IDType').value + "&"+ 
+					"IDValue="+ document.getElementById('IDValue').value + "&"+ 
+					"HaveLicense="+ document.getElementById('HaveLicense').value + "&"+ 
+					"HaveLicense="+ document.getElementById('HaveLicense').value + "&"+ 
+					"StateExempt="+ document.getElementById('StateExempt').value + "&"+ 
+					"FirstName="+ document.getElementById('FirstName').value + "&"+ 
+					"LastName="+ document.getElementById('LastName').value + "&"+ 
+					"Email="+ document.getElementById('Email').value + "&"+ 
+					"DesiredPassword="+ document.getElementById('DesiredPassword').value + "&"+ 
+					"ConfirmPassword="+ document.getElementById('ConfirmPassword').value ;
+                    req.send(data);
+              }
+            </script>
+			<form action="{{ url_for('providers_reg') }}" method="post">
+<input type="hidden" name="portal" value="Provider">
+<input type="hidden" name="profile_id" value="" />
+<tr>
+<td colspan="2">
+<b>School Information</b>
+</td>
+</tr>
+<tr>
+<td width="116">School name*</td>
+<td width="890">
+<input id="ProviderName" class="xoText" type="text" style="width:360;" name="ProviderName">
+</td>
+</tr>
+<tr>
+<td>School address*</td>
+<td>
+<input class="xoText" type="text" style="width:360px;" name="Address" id="Address" >
+</td>
+</tr>
+<tr>
+<td>City*</td>
+<td>
+<input class="xoText" type="text" style="width:360px;" name="City" id="City" />
+</td>
+</tr>
+<tr>
+<td>State* </td>
+<td>
+<select class="xoText" style="width:360;" name="State" id="State">
+<option>New York</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Zip* </td>
+<td>
+<input class="xoText" type="text" style="width:360;" name="Zip" id="Zip" maxlength="5">
+</td>
+</tr>
+<tr>
+<td>Phone*</td>
+<td>
+<input class="xoText" type="text" style="width:360;" name="Phone" id="Phone">
+</td>
+</tr>
+<tr>
+<td>Website</td>
+<td>
+<input class="xoText" type="text" style="width:360;" name="Website" id="Website">
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<b>
+<br>
+Business Information
+</b>
+</td>
+</tr>
+<tr>
+<td valign="top">Business name*</td>
+<td>
+<input id="BusinessName" class="xoText" type="text" style="width:360;" name="BusinessName" >
+<br>
+<span class="xoSmall">
+(
+<a class="xoLink" onclick="document.getElementById('BusinessName').value=document.getElementById('ProviderName').value;" style="cursor:pointer;">Copy from School name</a>
+)
+</span>
+</td>
+</tr>
+
+<tr>
+<td>Corporate name as per W9*</td>
+<td>
+<!--<select class="xoText" style="width:100;height:22;" name="IDType" id="IDType" >
+<option value="EIN">EIN</option>
+<option value="SSN">SSN</option>
+</select>
+    <input class="xoText" value="CorporateName" style="width:260;height:22;" name="CorporateName">
+-->
+    <input id="CorporateName" class="xoText" type="text" style="width:360;" name="CorporateName" >
+</td>
+</tr>
+
+<tr>
+<td>EIN Number*</td>
+<td>
+<!--<select class="xoText" style="width:100;height:22;" name="IDType" id="IDType" >
+<option value="EIN">EIN</option>
+<option value="SSN">SSN</option>
+</select>-->
+<input class="xoText" type="hidden" value="EIN" style="width:260;height:22;" name="IDType">
+<input class="xoText" type="text" style="width:260;height:22;" name="IDValue">
+</td>
+</tr>
+<tr>
+<td colspan="2">
+Does your Training Provider Organization have a license?
+<input type="radio" value="1" name="HaveLicense" id="HaveLicense" >
+Yes
+<input type="radio" checked="" value="0" name="HaveLicense" id="HaveLicense" >
+No
+</td>
+</tr>
+<tr>
+<td colspan="2">
+Do you have an exemption under state education law 5001(2)?
+<input type="radio" value="1" name="StateExempt" id="StateExempt" >
+Yes
+<input type="radio" checked="" value="0" name="StateExempt" id="StateExempt" >
+No
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<b>
+<br>
+Account Information
+</b>
+</td>
+</tr>
+<tr>
+<td>First name*</td>
+<td>
+<input class="xoText" type="text" style="width:360;" name="FirstName">
+</td>
+</tr>
+<tr>
+<td>Last name*</td>
+<td>
+<input class="xoText" type="text" style="width:360;" name="LastName">
+</td>
+</tr>
+<tr>
+<td>Email*</td>
+<td>
+<input class="xoText" type="text" style="width:360;" name="Email">
+</td>
+</tr>
+<tr>
+<td>Desired password*</td>
+<td>
+<input class="xoText" type="password" style="width:360;" name="DesiredPassword" id="DesiredPassword">
+</td>
+</tr>
+<tr>
+<td>Confirm password*</td>
+<td>
+<input class="xoText" type="password" style="width:360;" name="ConfirmPassword" id="ConfirmPassword">
+</td>
+</tr>
+<tr>
+<td align="right" colspan="2">
+<br>
+<button type="submit" id="btn-post" onclick="do_providers_reg();">Create Your WPOS ETP account</button>
+<div id="result"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<img width="1" height="20" border="0" alt="" src="http://ostest.westchestergov.com/images/spacer.gif">
+</td>
+</tr>
+</tbody>
+</table>
+		 
+</div>			
+<div class="col-lg-2"  >
+<style>
+    .XOQuickLink{
+        color:#fff;
+    }    
+</style>
+<div style="background-color: #C8C8C8; outline: #C8C8C8 solid 10px; padding:8px;">
+<h4 style="color: #fff;">QUICK LINKS</h4>
+<a class="XOQuickLink" href="/about "><span class="xoSmall">&raquo;</span> What Is One-Stop?</a><br>
+<a class="XOQuickLink" href="/login_form.php?user=Job Seeker&&redirect=/upload_resume/upload.php?id=a "><span class="xoSmall">&raquo;</span> Post a Resume</a><br>
+<a class="XOQuickLink" href="/login_form.php?user=Employer "><span class="xoSmall">&raquo;</span> Post a Job</a><br>
+<a class="XOQuickLink" href="/workshop/"><span class="xoSmall">&raquo;</span> Workshops & Training</a><br>
+<a class="XOQuickLink" href="/index.php/about/links-resources"><span class="xoSmall">&raquo;</span> Links & Resources</a><br>
+<!--<a class="XOQuickLink" href="/index.php/about/faqs "><span class="xoSmall">&raquo;</span> FAQ's </a><br>-->
+<a class="XOQuickLink" href="/index.php/about/contact-us "><span class="xoSmall">&raquo;</span> Contact Us </a>              
+</div>
+<br>
+<br> <div style="outline: #f6f7f9 solid 10px; padding:5px;">
+<form action="/job-seeker/index.php?pid=5&user=Job Seeker" method="post">
+    <h4>Search</h4>
+     Enter Keywords:
+     <input type="text" style="width:125px;" class="xoText" name="q" value="">
+     Select Sector
+     <select style="width:120px;" class="xoText" name="s" >
+        <option value="0">All sectors</option>
+                        <option value="1" >Green</option>
+
+                         <option value="2" >Healthcare</option>
+
+                         <option value="3" >Hospitality</option>
+
+                         <option value="4" >Information Technology</option>
+
+                         <option value="5" >Biotech</option>
+
+                         <option value="6" >Not For Profit</option>
+
+                         <option value="7" >Advanced Manufacturing</option>
+
+                         <option value="8" >Other</option>
+
+         
+    </select><br><br>
+     <input type="submit" class="btn" value="Search Jobs" style="background-color: #91aed5;">
+</form>	
+</div>
+<br><br></div> 
+</div>
+</div>
+</body>
+</html>
+
+
+
+
+
