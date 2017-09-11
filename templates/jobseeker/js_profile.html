@@ -1,0 +1,283 @@
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<title>Onestop Jobseeker</title>
+</head>
+<body>
+<div class="container" style="">
+<div class="row">
+<div class="col-lg-6" >
+<img src="http://ostest.westchestergov.com/images/logo.png" width="370px" style="margin-left:-18px;padding-top:11px;padding-left:5px;"></a>
+</div>
+<div  align="right" class="col-lg-6" style="margin-top:8px; "> <!-- pqp4 changed position from absolute -->
+                                 <a href="/jsprofile" class="btn" style="background-color: #FE9A2E; color:#fff;"> View Profile</a>
+                 <a href="/logout" class="btn" style="background-color: #FE9A2E; color:#fff;">  Logoff</a>
+                 </div>
+</div>
+<hr style="outline: #eeeeee solid thin;">
+<div class="row" >
+<div class="col-lg-10">
+      
+<table class="xoText" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+    <tr><td><img src="http://ostest.westchestergov.com/images/spacer.gif" alt="" border="0" height="12" width="1"></td></tr>
+    <tr><td>
+        
+        <p class="xoBig"><h2>My One-Stop</h2></p>         <p>
+        	     
+			                              If you are interested in participating in this program  and would like to take advantage of all the Jobâ€™s Waiting benefits please <a href="http://ostest.westchestergov.co
+m/job-seeker/index.php?pid=24">Click here</a>
+        to provide additional information required for
+        approval to participate in the program.
+    
+                        You have successfully registered as a OneStop Jobseeker.        </p>
+		<p>
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody>
+				<tr>
+					<td valign="top" width="100%"><table class="xoText" border="0" cellpadding="3" cellspacing="0" width="100%">
+						<tbody>
+                            <tr><td>
+{% if user %}
+                              <table class="xoText" border="0" cellpadding="3" cellspacing="0" width="100%">
+                        <tbody>
+                                <tr>
+                                    <td width="27%" style="font-weight:bold;padding:0;">My Profile</td>
+                                    <td width="73%" align="right" style="padding:0;">[ <a href="/profile_edit" class="xoLink">Edit My Profile</a> ]</td>
+                                </tr>
+                                <tr>
+                                    <td align="left">Name:</td>
+                                    <td align="left">{{user[0] +" "+ user[1]}}</td>
+                                </tr>		
+                                <tr>
+                                    <td align="left">Address:</td>
+                                    <td align="left"><br />{{user[2]+", "+user[3]+", "+user[4]+", "+user[5]+", "+user[6]}}</td>
+                                </tr>		
+                                <tr>
+                                     <td align="left">Email:</td>
+                                     <td align="left"><a href="mailto:" class="xoLink"></a>{{user[7]}}</td>
+                                </tr>		
+                                <tr>
+                                     <td align="left">Phone:</td>
+                                     <td align="left">{{user[8]}}</td>
+                                </tr>
+                                <tr>
+                                     <td align="left">Through which entity you came to know about this program :</td>
+                                     <td align="left">{{user[9]}}</td>
+                                </tr>	
+                                <tr>
+                                     <td align="left">One-Stop Code (NY#):</td>
+                                     <td align="left">{{user[10]}}</td>
+                                </tr>		
+                                <tr>
+                                    <td align="left">Preferred Time:</td>
+                                    <td align="left">{{user[11]}}</td>
+                                </tr>		
+                                <tr>
+                                    <td align="left">Salary Expected:</td>
+                                    <td align="left">{{user[12]}}</td>
+                                </tr>		
+                                <tr>
+                                    <td align="left">Profile views</td>
+                                    <td align="left">{{user[13]}}</td>
+                                </tr>	
+                            </tbody>
+                    </table></td></tr>
+
+
+  							<tr style="font-weight:bold;">
+                            	<td><a class='xoLink' href="/jsresume"><strong>My Resumes</strong></a><br/></td></tr>
+            		{% if js_resumes %}
+		            {% for row in js_resumes %}
+				<tr bgcolor="#EDEDED">
+                		<td> {{ row[0] }} - Updated on {{ row[1] }}</td>
+ 		               </tr>
+		            {% endfor %}
+		        {% else %}
+                             <tr> <td>You have not uploaded your resume.  To upload your resume now,  <a href="/jsresume" class="xoLink">CLICK HERE</a>. </td></tr>
+                             <tr> <td>&nbsp;</td></tr>
+
+			{% endif %}
+                        	<tr><td>&nbsp;</td></tr>
+                        	<tr>
+                            	<td><a href="/enrolledprograms" class="xoLink"><strong>Current Programs Enrolled</strong></a></td>
+
+                            </tr>
+    					</tbody>
+    				</table></td>
+					<td><img src="http://ostest.westchestergov.com/images/spacer.gif" alt="" border="0" height="1px" width="5px"></td>
+                    <td valign="top">
+                        <table class="xoText" border="0" cellpadding="3" cellspacing="0" width="220px">
+                        <tbody>
+                        
+                        <tr style="font-weight:bold;" a href="/jobsearch"><td><strong>Recent Searches</strong></td></tr>
+            		{% if recent_searches %}
+		            {% for row in recent_searches %}
+				<tr bgcolor="#EDEDED">
+				{% if row[1] == '0' %}
+				{% set sector_val = None %}
+				{% else %}
+                {% set sector_val = row[1] %}
+				{% endif %}
+	<td><a href="{{ url_for('jobsearch',keyword= row[0] , sector= sector_val) }}">{% if row[0] == '' %} All Jobs {% else %} {{ row[0] }}{% endif %}
+                		{% if row[1] == '0' %}in All Sectors {% else %}in {{ row[1] }}{% endif %}</a>
+		                Searched on {{ row[2] }}</td>
+ 		               </tr>
+		            {% endfor %}
+		        {% else %}
+                             <tr> <td>You do not have any saved searches. To begin searching for a job, <a href="/jobsearch" class="xoLink">CLICK HERE</a>. </td></tr>
+                             <tr> <td>&nbsp;</td></tr>
+
+			{% endif %}
+
+                        <tr style="font-weight:bold;"><td><strong><a href="{{ url_for('jobsave') }}">Saved Jobs</a></strong></td></tr>
+	                {% if saved_jobs %}
+            			{% for row in saved_jobs %}
+	    			<tr bgcolor="#EDEDED">
+            		        <td>{{ row[0] }} - Saved on {{ row[1] }}</td>
+		                </tr>
+            		{% endfor %}
+		        {% else %}
+				<tr><td>You have not saved any jobs.  To begin searching for a job, 
+                                <a href="/jobsearch" class='xoLink' >CLICK HERE</a></td></tr>
+                                <tr><td>&nbsp;</td></tr>
+         		{% endif %}
+            
+
+			 <tr style="font-weight:bold;"><td><strong><a href="{{ url_for('jobsave') }}">Applied Jobs</strong></td></tr>
+		            {% if applied_jobs %}
+		            {% for row in applied_jobs %}
+			    <tr bgcolor="#EDEDED">
+                	    <td>{{ row[0] }} - Applied on {{ row[1] }}</td>
+		            </tr>
+		            {% endfor %}
+		            {% else %}
+			    <tr><td>You have not applied to any jobs.  To begin searching for a job, 
+                            <a href="/jobsearch" class='xoLink' >CLICK HERE</a></td></tr>    		
+	                    <tr><td>&nbsp;</td></tr>             
+			    {% endif %}
+{% endif %}
+                <tr style='font-weight:bold;'><td><h4>Recent ITA</strong></h4></td></tr>  
+                <tr><td><a href="/itastatus" class="xoLink">Submitted ITA.</a></td></tr>
+                <tr><td><a href="/itastatus" class="xoLink">Rejected ITA.</a></td></tr>
+                <tr><td><a href="/itastatus" class="xoLink">Approved ITA.</a></td></tr>
+                <tr><td><a href="/itastatus" class="xoLink">Accepted ITA.</a></td></tr>
+                    </tbody></table></td>
+				</tr>
+			</tbody>
+        </table>
+        </p>
+	</td></tr>
+	<tr><td><img src="http://ostest.westchestergov.com/images/spacer.gif" alt="" border="0" height="20" width="1"></td></tr>
+</tbody>
+</table>
+<br />
+
+
+
+<p class="xoBig"><h2>Recent Job Postings</h2></p>
+<p>
+	<table border="0" cellpadding="3" cellspacing="0" width="100%">
+		<tbody>
+			<tr style="font-weight:bold;">
+                <td style="font-weight:bold;">Job title</td>
+                <td style="font-weight:bold;">Level</td>
+                <td style="font-weight:bold;">Location</td>
+                <td style="font-weight:bold;">Published</td>
+                <td>&nbsp;</td>
+			</tr>
+					</tbody>                
+	</table>
+</p>
+<p>
+    <!-- /jobseeker/jobpostings -->
+	<a href="/jobsearch" class="xoLink">View more job postings &raquo;</a>
+</p></div>
+    <div class="col-lg-2"  >
+<style>
+    .XOQuickLink{
+        color:#fff;
+    }
+</style>
+<br>
+<br>
+
+<div style="background-color: #91aed5; outline: #91aed5 solid 10px; padding:8px;">  
+<h4 style="color:#fff;">Quick Links</h4>
+<a class="XOQuickLink" ><span> &raquo; </span>Post your resume</a><br>
+<a class="XOQuickLink" ><span class="xoSmall"> &raquo; </span>Update Your Profile</a><br>
+<a class="XOQuickLink" > <span>&raquo;</span> Search Jobs by Industry</a><br>
+<a class="XOQuickLink" ><span> &raquo;</span> Workshops &amp; Training</a><br>
+
+<a  class="XOQuickLink" ><span> &raquo;</span> My Workshops</a><br>
+<a  class="XOQuickLink" ><span> &raquo;</span> Training Opportunities </a><br>
+    
+<a  class="XOQuickLink" ><span> &raquo; </span>Links & Resources</a>   
+</div>
+<br>
+<br><br />
+
+<div style="outline: #f6f7f9 solid 10px; padding:5px;">
+    <h4>Search</h4>
+     Enter Keywords:
+     <input type="text" style="width:125px;" class="xoText" name="q" value="">
+     Select Sector
+     <select style="width:120px;" class="xoText" name="s" >
+        <option value="0">All sectors</option>
+                        <option value="1" >Green</option>
+
+                         <option value="2" >Healthcare</option>
+
+                         <option value="3" >Hospitality</option>
+
+                         <option value="4" >Information Technology</option>
+
+                         <option value="5" >Biotech</option>
+
+                         <option value="6" >Not For Profit</option>
+
+                         <option value="7" >Advanced Manufacturing</option>
+
+                         <option value="8" >Other</option>
+
+         
+    </select><br><br>
+     <input type="submit" class="btn" value="Search Jobs" style="background-color: #91aed5;">
+</form>	
+</div>
+<br><br>
+
+<div style="outline: #91aed5; outline: #f6f7f9 solid 10px; padding:8px;">
+        <form action="" method="post">
+            <input type="hidden" name="redirect" value="">
+            <input type="hidden" name="authenticate" value="Job Seeker"> 
+            <h4>Job Seeker Login</h4> 
+             Email:
+			 
+			 <input type="text" style="width:125px;" class="xoText" name="Email"/>
+        
+            Password:
+            <input type="password" style="width:125px;" class="xoText" name="Password"><br><br>
+            <input type="submit" class="btn" value="Login" style="background-color: #91aed5;"><br>
+             &raquo; <a class="xoLink" Forgot password?</a><br>
+             &raquo; <a Create account</a>
+            </form>
+
+    
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
+

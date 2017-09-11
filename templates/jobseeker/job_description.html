@@ -1,0 +1,211 @@
+
+<!-- saved from url=(0075)https://www.westchesterputnamonestop.com/job-seeker/index.php?pid=6&id=3437 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="./job_description_files/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="./job_description_files/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="./job_description_files/bootstrap.min.js.download" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<title>Onestop Jobseeker</title>
+</head>
+<body><div id="StayFocusd-infobar" style="display: none; top: 0px;">
+    <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
+    <span id="StayFocusd-infobar-msg"></span>
+    <span id="StayFocusd-infobar-links">
+        <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a id="StayFocusd-infobar-hide">hide once</a>
+    </span>
+</div>
+<div class="container" style="">
+<div class="row">
+<div class="col-lg-6">
+<a href="https://www.westchesterputnamonestop.com/"><img src="./job_description_files/logo.png" width="370px" style="margin-left:-18px;padding-top:11px;padding-left:5px;"></a>
+</div>
+<div align="right" class="col-lg-6" style="margin-top:8px; "> <!-- pqp4 changed position from absolute -->
+                                 <a href="/jsprofile" class="btn" style="background-color: #FE9A2E; color:#fff;"> View Profile</a>
+                 <a href="/logout" class="btn" style="background-color: #FE9A2E; color:#fff;">  Logoff</a>
+                 </div>
+
+</div>
+<hr style="outline: #eeeeee solid thin;">
+<div class="row">
+<div class="col-lg-10">
+     
+<div name="Apply for a Job">
+     
+<p class="xoSmall">
+    <a class="xoLink" href="/">Home</a>» 
+    <a class="xoLink" href="/jsprofile">Job Seeker</a>» 
+    <a class="xoLink" href="/jobsearch">Apply Job</a> </p>
+{% for row in job_description %}
+<p class="xoBig"></p><h2>{{ row[0]}} </h2><p></p>
+    
+
+<br>
+
+<p align="right">
+
+
+    <!-- Menu Items -->
+    [ <a href="{{ url_for('jobapply',jobid= row[18])}}" class="xoLink">Apply to this Job</a> 
+        | {% if saved_job_count == '0' %}<a href="{{ url_for('jobsave',jobid= row[18]) }}" class="xoLink">Save this Job</a> {% else %}  <a href="{{ url_for('jobremove',jobid= row[18]) }}" class="xoLink">Remove this Job</a> {% endif %}      	
+		| <a href="/jobsearch" class="xoLink">Back to Job Search</a> ]
+</p>
+
+
+<p>
+    <b>Job Status</b>
+    <br>{{ row[1]}}</p>
+                
+<p>
+    <b>Description</b>
+    <br>{{ row[2]}}
+</p>
+
+<p>
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="xoText">
+    <tbody><tr>
+    <td width="50%" valign="top">
+
+      <p>
+          <b>Sectors</b>
+          <br>{{ row[3]}}      </p>
+      <p>&nbsp;</p> 
+      <p>
+          <b>Type</b>
+          <br>{{ row[5]}}</p>
+       <p>&nbsp;</p>    
+      <p>
+</td>
+
+<td width="50%" valign="top">
+                    <p><b>Level</b><br>{{ row[4]}}</p>
+                     <p>&nbsp;</p> 
+                    <p><b>Location</b><br>{{ row[6]}}</p>
+</td>
+</tr>
+</tbody></table>
+</p>
+
+
+<p>
+    <table border="0" cellpadding="3" cellspacing="0" class="xoText" width="100%">
+            <tbody><tr><td colspan="4" style="font-weight:bold;">Job Information</td></tr>
+            <tr><td nowrap="nowrap">Total interviews:</td><td width="50%">{{ row[7]}}</td>
+            <td nowrap="nowrap">Minimum education:</td><td width="50%">{{ row[11]}}</td></tr>
+            <tr><td nowrap="nowrap">Total openings:</td><td>{{ row[8]}}</td>
+            <td nowrap="nowrap">Degree required:</td><td>{{ row[12]}}</td></tr>
+            <tr><td nowrap="nowrap">Salary range:</td><td>{{ row[9]}}</td><td nowrap="nowrap">Starting salary:</td><td>{{ row[13]}}</td></tr>
+            <tr><td nowrap="nowrap">Hours per week:</td><td>{{ row[10]}}</td>
+            <td nowrap="nowrap">Driver's license required:</td><td>{{ row[14]}}</td></tr>
+    </tbody></table>
+</p>
+
+<!-- Applied Job -->
+<p class="xoBig"><b>Apply to this Job</b></p>
+{{ row[15]}}
+
+        
+                <!-- applied by Mail --> 
+                        
+                <!-- applied by Email--> 
+                
+                <!-- applied by Phone--> 
+                                    
+                <!-- applied by In-person --> 
+                                    
+                <!-- Apply in Website --> 
+                                    <p>Applications to this job are taken via employer website.  Please Visit the website                        
+                    <b>WEB LINKS:</b>
+                    <p>
+                        <b>Job Website</b>
+                                                <br><a href="{{ row[15]}}">CLICK HERE to visit the job website.</a>
+                    </p>
+                                    
+                
+    <p>
+        <b>Job Website</b>
+                <br><a href="{{ row[15]}}">CLICK HERE to visit the job website.</a>
+    </p>
+    <p>
+          <b>Additional Information</b>
+          <br>  {{ row[16]}}
+        <br>  {{ row[17]}}
+    </p>	
+<p></p>
+
+
+</div></div>
+    <div class="col-lg-2">
+<style>
+    .XOQuickLink{
+        color:#fff;
+    }
+</style>
+<br>
+<br>
+
+<div style="background-color: #91aed5; outline: #91aed5 solid 10px; padding:8px;">  
+<h4 style="color:#fff;">Quick Links</h4>
+<a href="" class="XOQuickLink"><span> » </span>Post your resume</a><br>
+<a href="" class="XOQuickLink"><span class="xoSmall"> » </span>Update Your Profile</a><br>
+<a href="" class="XOQuickLink"> <span>»</span> Search Jobs by Industry</a><br>
+<a href="" class="XOQuickLink"><span> »</span> Workshops &amp; Training</a><br>
+
+<a href="" class="XOQuickLink"><span> »</span> My Workshops</a><br>
+<a href="" class="XOQuickLink"><span> »</span> Training Opportunities </a><br>
+    
+<a href="https://www.westchesterputnamonestop.com/index.php/about/links-resources" class="XOQuickLink"><span> » </span>Links &amp; Resources</a>   
+</div>
+r
+<br>
+<br> <div style="outline: #f6f7f9 solid 10px; padding:5px;">
+<form action="/jobsearch" method="post">
+    <h4>Search</h4>
+     Enter Keywords:
+     <input type="text" style="width:125px;" class="xoText" name="q" value="">
+     Select Sector
+     <select style="width:120px;" class="xoText" name="s">
+        <option value="0">All sectors</option>
+                        <option value="1">Green</option>
+
+                         <option value="2">Healthcare</option>
+
+                         <option value="3">Hospitality</option>
+
+                         <option value="4">Professional Services</option>
+
+                         <option value="5">Biotech</option>
+
+                         <option value="6">Not For Profit</option>
+
+                         <option value="7">Manufacturing</option>
+
+                         <option value="8">Other</option>
+
+         
+    </select><br><br>
+     <input type="submit" class="btn" value="Search Jobs" style="background-color: #91aed5;">
+</form>	
+</div>
+<br><br>
+
+<div style="outline: #91aed5; outline: #f6f7f9 solid 10px; padding:8px;">
+
+    
+            <br><a href="/jsprofile" class="xoLink"> » View Your Profile</a>
+	    
+        <br><a href="" class="xoLink"> » Logoff</a>
+    
+</div>
+</div>
+</div>
+</div>
+
+{% endfor %}
+</body></html>

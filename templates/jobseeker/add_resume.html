@@ -1,0 +1,220 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="add_resume_files/bootstrap.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="add_resume_files/bootstrap-theme.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="add_resume_files/bootstrap.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<title>Onestop Jobseeker</title>
+</head>
+<body>
+<div class="container" style="">
+<div class="row">
+<div class="col-lg-6">
+<a href="https://www.westchesterputnamonestop.com/"><img src="add_resume_files/logo.png" style="margin-left:-18px;padding-top:11px;padding-left:5px;" width="370px"></a>
+</div>
+<div  align="right" class="col-lg-6" style="margin-top:8px; "> <!-- pqp4 changed position from absolute -->
+                                 <a href="/jsprofile" class="btn" style="background-color: #FE9A2E; color:#fff;"> View Profile</a>
+                 <a href="/logout" class="btn" style="background-color: #FE9A2E; color:#fff;">  Logoff</a>
+                 </div>
+
+</div>
+<hr style="outline: #eeeeee solid thin;">
+<div class="row">
+   <div class="col-lg-10">
+	
+   
+    <p class="xoSmall">
+        <a class="xoLink" href="/">Home</a> » 
+        <a class="xoLink" href="/jsprofile">Job Seeker</a> »
+        <a class="xoLink" href="/jsresume">My Resumes</a> » 
+         Add a Resumes     </p>
+    
+    <p class="xoSmall">
+        </p><p class="xoBig"></p><h2>Add a Resume</h2><p></p>    <p></p>
+    
+    <p>
+        [ <a class="xoLink" href="/showresume">View Resumes</a> ]    </p>
+    
+    <p>
+        <table class="xoText" cellspacing="0" cellpadding="3" border="0">
+                <form method="POST" action="{{ url_for('add_resume') }}" enctype="multipart/form-data">
+        	<tbody><tr>
+            <td colspan="2">
+                <br><br>
+                Use the field below to select an MS Word (*.doc, 
+*.docx), text-compatible PDF (*.pdf), or simple text (*.txt) version of 
+your resume to upload to your account.            </td>            
+        </tr>
+	<tr>
+            <td>Resume</td>
+            <td width="100%"><input name="file" class="xoText" type="file"></td>
+        </tr>
+        
+	<tr>
+             <td colspan="2">
+                <br><br>
+                <b>Upload Coversheet</b><br>Use the field below to 
+select an MS Word (*.doc, *.docx), text-compatible PDF (*.pdf), or 
+simple text (*.txt) version of your coversheet to attach to this resume.
+            </td>
+        </tr>
+	<tr>
+            <td>Coversheet</td>
+            <td width="100%"><input name="CoverSheetFile" class="xoText" type="file"></td>
+        </tr>
+                     
+        <tr>
+            <td colspan="2">
+                <br><br>
+                <b>Resume Title</b>
+                <br>Provide a title for this resume that you will use to
+ remember this resume by.  This title will only be available to you and 
+not to employers.
+            </td>
+        </tr> 
+
+	<tr>
+            <td>Title</td>
+            <td>
+                   <input name="ResumeTitle" class="xoText" maxlength="50" style="width:300px;" type="text">                             </td>
+        </tr>
+	<tr>
+            <td colspan="2" align="left">&nbsp;<br>            
+            <input value="upload" alt="" border="0" width="126" type="submit" height="33"></td>
+        </tr>
+    
+    </tbody></form></table>
+
+</p>    
+</div>
+    <div class="col-lg-2">
+     <style>
+    .XOQuickLink{
+        color:#fff;
+    }
+</style>
+<br>
+<br>
+
+<div style="background-color: #91aed5; outline: #91aed5 solid 10px; padding:8px;">  
+<h4 style="color:#fff;">Quick Links</h4>
+<a href="https://www.westchesterputnamonestop.com/upload_resume/upload.php?id=a" class="XOQuickLink"><span> » </span>Post your resume</a><br>
+<a href="https://www.westchesterputnamonestop.com/job-seeker/index.php?pid=3" class="XOQuickLink"><span class="xoSmall"> » </span>Update Your Profile</a><br>
+<a href="https://www.westchesterputnamonestop.com/job-seeker/index.php?pid=5" class="XOQuickLink"> <span>»</span> Search Jobs by Industry</a><br>
+<a href="https://www.westchesterputnamonestop.com/workshop/" class="XOQuickLink"><span> »</span> Workshops &amp; Training</a><br>
+
+<a href="https://www.westchesterputnamonestop.com/job-seeker/index.php?pid=23" class="XOQuickLink"><span> »</span> My Workshops</a><br>
+<a href="https://www.westchesterputnamonestop.com/job-seeker/index.php?pid=19" class="XOQuickLink"><span> »</span> Training Opportunities </a><br>
+    
+<a href="https://www.westchesterputnamonestop.com/index.php/about/links-resources" class="XOQuickLink"><span> » </span>Links &amp; Resources</a>   
+</div>
+<br>
+<br>   	  <div style="outline: #f6f7f9 solid 10px; padding:5px;">
+<form action="https://www.westchesterputnamonestop.com/job-seeker/index.php?pid=5&amp;user=Job Seeker" method="post">
+    <h4>Search</h4>
+     Enter Keywords:
+     <input style="width:125px;" class="xoText" name="q" type="text">
+     Select Sector
+     <select style="width:120px;" class="xoText" name="s">
+        <option value="0" selected="selected">All sectors</option>
+                        <option value="1">Green</option>
+
+                         <option value="2">Healthcare</option>
+
+                         <option value="3">Hospitality</option>
+
+                         <option value="4">Professional Services</option>
+
+                         <option value="5">Biotech</option>
+
+                         <option value="6">Not For Profit</option>
+
+                         <option value="7">Manufacturing</option>
+
+                         <option value="8">Other</option>
+
+         
+    </select><br><br>
+     <input class="btn" value="Search Jobs" style="background-color: #91aed5;" type="submit">
+</form>	
+</div>
+<br><br>    
+
+<div style="outline: #91aed5; outline: #f6f7f9 solid 10px; padding:8px;">
+
+    
+</div>                                              
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

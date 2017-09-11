@@ -1,0 +1,24 @@
+<table class="xoText" border="0" cellpadding="3" cellspacing="0" width="100%">
+		<tbody>
+        <tr style="font-weight:bold;">
+				<td style="font-weight:bold;">Job Title</td>
+				<td style="font-weight:bold;">Location</td>
+				<td style="font-weight:bold;">Published Data</td>
+                <td style="font-weight:bold;">Saved Date</td>
+				<td style="font-weight:bold;">View</td>
+				<td>&nbsp;</td>
+		</tr>
+
+            {% for row in javedjobs %}
+			<tr bgcolor="#EDEDED">
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[2] }}</td>
+                <td align="right" nowrap="nowrap">
+                    <a href="{{ url_for('job_description',variable=row[1]) }}">View</a>
+                </td>
+            </tr>
+            {% endfor %}
+		</tbody>                
+                </table>

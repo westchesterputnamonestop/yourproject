@@ -1,0 +1,163 @@
+
+<!-- saved from url=(0085)https://www.westchesterputnamonestop.com/job-seeker/index.php?pid=5&user=Job%20Seeker -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="./pagnation_files/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="./pagnation_files/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="./pagnation_files/bootstrap.min.js.download" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<title>Onestop Jobseeker</title>
+<style>
+
+ul {
+    list-style-type: none;
+    overflow: visible;
+    background-color: #999999;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: left;
+    padding: 20px;
+    text-decoration: circle;
+}
+
+li a:hover {
+    background-color: blue;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<table class="xoText" border="0" cellpadding="0" cellspacing="0" width="100%">
+    
+<tbody>
+    
+    <tr><td>
+
+    <div style="position:relative;"> 
+
+   
+    <p>
+            <a class="xoLink" href="https://www.westchesterputnamonestop.com/">Home</a> » 
+            <a class="xoLink" href="">Job Seeker</a> »
+    </p>
+    
+    <br>
+    <p class="xoBig"></p><h2>Recent Job Postings</h2><p></p>
+    <p>&nbsp;</p>
+  <p><table cellspacing="0" cellpadding="3" border="0" class="xoSmall"><tbody><tr>
+	<form action="{{ url_for('jobsearch') }}" method="post">	
+			<td>Keyword : <input type="text" style="width:158px;height:20px;" class="xoText" name="keyword" id="keyword" ></td>
+                        <td>    <label>Sector</label>
+		<select id="JobCenter" class="xoText" name="sector" style="width:120px;">
+                <option value='' >---All Sectors---</option>
+		  <option value="Green">Green</option>
+  <option value="Healthcare">Healthcare</option>
+  <option value="Hospitality">Hospitality</option>
+  <option value="Professional Services">Professional Services</option>
+  <option value="Biotech">Biotech</option>
+  <option value="Not For Profit">Not For Profit</option>
+  <option value="Manufacturing">Manufacturing</option>
+  <option value="Other">Other</option>	
+                </select>
+                <br>
+			<td><input type="submit" value="Search"></td>
+		
+		</tr></tbody></table>
+    <p>&nbsp;</p>
+{{ pagination.info }} 
+<p>
+
+<table class="xoText" border="0" cellpadding="3" cellspacing="0" width="100%">
+		<tbody>
+        <tr style="font-weight:bold;">
+				<td style="font-weight:bold;">Job title</td>
+				<td style="font-weight:bold;">Level</td>
+				<td style="font-weight:bold;">Location</td>
+				<td style="font-weight:bold;">Published</td>
+				<td>&nbsp;</td>
+		</tr>
+
+            {% for row in jobs %}
+			<tr bgcolor="#EDEDED">
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td align="right" nowrap="nowrap">
+                    <a href="{{ url_for('job_description',variable=row[0]) }}">{{ job_details }}</a>
+                </td>
+            </tr>
+            {% endfor %}
+		</tbody>                
+                </table>
+<p>
+{{ pagination.info }} {{ pagination.links }}
+</div>
+</td></tr>
+
+</tbody>
+</table></div>
+    <div class="col-lg-2">
+<style>
+    .XOQuickLink{
+        color:#fff;
+    }
+</style>
+<br>
+<br>
+
+<div style="background-color: #91aed5; outline: #91aed5 solid 10px; padding:8px;">  
+<h4 style="color:#fff;">Quick Links</h4>
+<a href="" class="XOQuickLink"><span> » </span>Post your resume</a><br>
+<a href="" class="XOQuickLink"><span class="xoSmall"> » </span>Update Your Profile</a><br>
+<a href="" class="XOQuickLink"> <span>»</span> Search Jobs by Industry</a><br>
+<a href="https://www.westchesterputnamonestop.com/workshop/" class="XOQuickLink"><span> »</span> Workshops &amp; Training</a><br>
+
+<a href="" class="XOQuickLink"><span> »</span> My Workshops</a><br>
+<a href="" class="XOQuickLink"><span> »</span> Training Opportunities </a><br>
+    
+<a href="https://www.westchesterputnamonestop.com/index.php/about/links-resources" class="XOQuickLink"><span> » </span>Links &amp; Resources</a>   
+</div>
+<br>
+<br><div style="outline: #f6f7f9 solid 10px; padding:5px;">
+<form action="" method="post">
+    <h4>Search</h4>
+     Enter Keywords:
+     <input type="text" style="width:125px;" class="xoText" name="keyword_footage" value="">
+    <label>Select Sector</label>
+		<select id="JobCenter" class="xoText" name="sector_footage" style="width:120px;">
+                <option value=''>----------- Select Sector ----------</option>
+		  <option value="Green">Green</option>
+  <option value="Healthcare">Healthcare</option>
+  <option value="Hospitality">Hospitality</option>
+  <option value="Professional Services">Professional Services</option>
+  <option value="Biotech">Biotech</option>
+  <option value="Not For Profit">Not For Profit</option>
+  <option value="Manufacturing">Manufacturing</option>
+  <option value="Other">Other</option>	
+                </select>
+                <br>
+     <input type="submit" class="btn" value="Search Jobs" style="background-color: #91aed5;">
+</form>	
+</div>
+<br><br>
+
+</div>
+</div>
+</div>
+

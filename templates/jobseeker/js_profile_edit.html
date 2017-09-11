@@ -1,0 +1,303 @@
+
+
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+              function do_ajax() {
+                var req = new XMLHttpRequest();
+                var result = document.getElementById('result');
+                req.onreadystatechange = function()
+                { 
+                  if(this.readyState == 4 && this.status == 200) {
+                    result.innerHTML = this.responseText;
+                  } else {
+                    result.innerHTML = "waiting...";
+                  }
+                }
+                req.open('POST', '/jsregister' , true);
+                req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                    var data = "FirstName="+ document.getElementById('FirstName').value + "&"+ "LastName="+ document.getElementById('LastName').value + "&"+ "Address1="+ document.getElementById('Address1').value + "&"+ "Address2="+ document.getElementById('Address2').value + "&"+ "City="+ document.getElementById('City').value + "&"+ "State="+ document.getElementById('State').value + "&"+ "County="+ document.getElementById('County').value + "&"+ "Zip="+ document.getElementById('Zip').value + "&"+ "Phone="+ document.getElementById('Phone').value + "&"+ "Extension="+ document.getElementById('Extension').value + "&"+ "Phone2="+ document.getElementById('Phone2').value + "&"+ "Entity="+ document.getElementById('Entity').value + "&"+ "OneStopCode="+ document.getElementById('OneStopCode').value + "&"+ "PreferredTime="+ document.getElementById('PreferredTime').value + "&"+ "SalaryExpected="+ document.getElementById('SalaryExpected').value + "&"+ "Email="+ document.getElementById('Email').value + "&"+ "Password="+ document.getElementById('Password').value + "&"+ "SecurityQuestion1="+ document.getElementById('SecurityQuestion1').value + "&"+ "SecurityAnswer1="+ document.getElementById('SecurityAnswer1').value + "&"+ "SecurityQuestion2="+ document.getElementById('SecurityQuestion2').value + "&"+ "SecurityAnswer2="+ document.getElementById('SecurityAnswer2').value ;
+                    req.send(data);
+              }
+            </script>
+<title>Onestop Jobseeker</title>
+</head>
+<body>
+<div class="container" style="">
+<div class="row">
+<div class="col-lg-6" >
+<a href="http://ostest.westchestergov.com/"><img src="http://ostest.westchestergov.com/images/logo.png" width="370px" style="margin-left:-18px;padding-top:11px;padding-left:5px;"></a>
+</div>
+<div  align="right" class="col-lg-6" style="margin-top:8px; "> <!-- pqp4 changed position from absolute -->
+                                 <a href="/jsprofile" class="btn" style="background-color: #FE9A2E; color:#fff;"> View Profile</a>
+                 <a href="/logout" class="btn" style="background-color: #FE9A2E; color:#fff;">  Logoff</a>
+                 </div>
+
+
+</div>
+<hr style="outline: #eeeeee solid thin;">
+<div class="row" >
+<div class="col-lg-10">
+    
+ <style type="text/css">
+ #register  label.error {
+    color: #F9A25E;
+    display: inline-block;
+    margin: 4px 0 5px 5px;
+    padding: 0;
+    text-align: left;
+    }
+</style>
+<script type="text/javascript" src="http://ostest.westchestergov.com/scripts/jquery-1.4.4.min.js"></script>
+<script src="http://ostest.westchestergov.com/scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+<script src="http://ostest.westchestergov.com/scripts/jquery.validate.min.js" type="text/javascript"></script>
+<link type="text/css" href="http://ostest.westchestergov.com/css/jquery-ui-1.8.16.custom.css" rel="stylesheet"  />
+<script src="http://ostest.westchestergov.com/scripts/jquery.maskedinput.min.js" type="text/javascript"></script>
+
+<table class="xoText" border="0" cellpadding="0" cellspacing="0" width="100%">
+    
+<tbody>
+    <tr><td><img src="http://ostest.westchestergov.com/images/spacer.gif" alt="" border="0" height="12" width="1"></td></tr>
+    
+    <tr><td>
+            <p class="xoSmall">
+                <a class="xoLink" href="/">Home</a> &raquo; 
+                <a class="xoLink" href="/jsprofile">Job Seeker</a> &raquo; Edit My Profile
+            </p>
+    <br/>        
+   <p class="xoBig"><h2>Edit My Profile  </h2></p
+  
+    
+    
+
+<p>
+<table align="center" border="0" cellpadding="3" cellspacing="0" class="xoText" width="100%">
+  <tbody>  
+        <form action="/" method="post" name="register" id="register">
+
+        <tr><td colspan="2"><b>Job Seeker Information</b></td></tr>
+        <input type='hidden' name='profile_id' value=''>
+        
+	<tr><td align="right">First name*</td><td><input type="text" name="FirstName" maxlength="20" class="xoText" style="width:300px;" value=""""></td></tr>
+	<tr><td align="right">Last name*</td><td><input type="text" name="LastName" maxlength="20" class="xoText" style="width:300px;" value=""></td></tr>
+		
+        <tr><td align="right">Address*</td><td><input type="text" name="Address1" maxlength="50" class="xoText" style="width:300px;" value=""></td></tr>
+        <tr><td align="right">&nbsp;</td><td><input type="text" name="Address2" maxlength="20" class="xoText" style="width:300px;" value=""></td></tr>
+	<tr><td align="right">City*</td><td><input type="text" name="City" maxlength="20" class="xoText" style="width:300px;" value=""></td></tr>
+	
+        <tr><td align="right">State*</td>
+            <td>
+             <select id="State"  id="State" class="xoText" style="width:314px;",value="">
+			 <option selected="selected">----------- Select State ----------</option>
+			{% for row in state %}
+			<option value="{{ row[0] }}"> {{ row[1] }}</option>
+			{% endfor %}
+			</select> 		  
+            </td></tr>
+            <tr>
+                <td align="right">County*</td>
+                <td><select id="County" class="xoText" style="width:314px;",>
+					                        <option selected="selected">----------- Select county ----------</option>
+                                {% for row in county %}
+                                <option value="{{row[0] }}"> {{ row[1] }}</option>
+                                {% endfor %}
+                                </select></td>
+            </tr>
+	<tr><td align="right">Zip*</td><td><select name="Zip" id="Zip" class="xoText" style="width:314px;">
+					<option value="">-- Select Your Zip ----------</option> 
+                                
+                    </select></td></tr>
+		<tr><td align="right">Phone*</td><td><input type="text" name="Phone" maxlength="15" class="xoText" style="width:300px;" value=""></td></tr>
+	<tr><td align="right">Extension</td><td><input type="text" name="Extension" maxlength="6" class="xoText" style="width:300px;" value=""></td></tr>
+	
+	<tr><td align="right">Alt Phone</td><td><input type="text" name="Phone2" maxlength="15" class="xoText" style="width:300px;" value=""></td></tr>
+    <tr><td align="right">Through which entity you came to know about this program</td>
+	<td><select name="Entity" class="xoText" style="width:314px;">
+			<option selected="selected">----------- Select Entity ----------</option>
+                                {% for row in Entity %}
+                                <option value="{{row }}"> {{ row }}</option>
+                                {% endfor %}                      		
+		</select></td></tr>
+		
+                <tr><td align="right"> One-Stop Code (NY#)</td><td><input type="text" name="OneStopCode" maxlength="15" class="xoText" style="width:300px;" value=""></td></tr>
+		
+                <tr><td align="right">Preferred time</td>
+				<td><select name="PreferredTime" class="xoText" style="width:314px;">
+		                    <option selected="selected">----------- Select PreferredTime ----------</option>
+                                {% for row in preferredtime %}
+                                <option value="{{row[0] }}"> {{ row[1] }}</option>
+                                {% endfor %}
+                        </select>
+       
+		<tr><td align="right">Salary Anticipated</td>
+		<td><select name="SalaryExpected" class="xoText" style="width:314px;">
+				<option selected="selected">----------- Select SalaryExpected ----------</option>
+                                {% for row in salary %}
+                                <option value="{{row }}"> {{ row }}</option>
+                                {% endfor %}
+			              </select>
+                
+         <tr><td align="right" valign="top">Sectors*</td>
+             <td>
+              <table border="0" cellpadding="0" cellspacing="0" class="xoText" width="100%"><tr>
+	        	
+                </tr>
+              </table>
+             </td>
+         </tr>
+         
+	<tr>
+            <td colspan="2">&nbsp;<br>
+                <b>Account Information</b>
+                <br>Your email address and the password you provide below will be the login
+                <br>credentials you will use in the future to access this site.
+            </td>
+        </tr>
+	
+        <tr><td align="right">Email address*</td>
+            <td><input type="text" name="Email" maxlength="100" class="xoText" style="width:300px;" value=""></td>
+        </tr>
+	
+	<tr><td align="right">Password*</td>
+            <td><input type="password"  name="Password" maxlength="10" class="xoText" style="width:300px;" value=""></td>
+        </tr>
+	
+        <tr><td align="right">Security question 1*</td><td>
+                <select name="SecurityQuestion1" class="xoText" style="width:314px;">
+		  	          <option selected="selected">----------- Select SecurityQuestion1 ----------</option>
+                                {% for row in securityquestion %}
+                                <option value="{{row[0] }}"> {{ row[1] }}</option>
+                                {% endfor %}
+                               </select>
+                
+            </td>
+        </tr>     
+	<tr>
+            <td align="right">Security answer 1*</td>
+            <td><input type="text" name="SecurityAnswer1" maxlength="200" class="xoText" style="width:300px;" 
+                       value="">
+            </td>
+        </tr>
+	
+        <tr>
+            <td align="right">Security question 2*</td>
+            <td><select name="SecurityQuestion2" class="xoText" style="width:314px;">      
+		          <option selected="selected">----------- Select SecurityQuestion1 ----------</option>
+                                {% for row in securityquestion %}
+                                <option value="{{row[0] }}"> {{ row[1] }}</option>
+                                {% endfor %}
+                               </select>      
+            </td>
+        </tr> 
+                
+        <tr>
+            <td align="right">Security answer 2*</td>
+            <td><input type="text" name="SecurityAnswer2" maxlength="200" class="xoText" style="width:300px;" 
+                       value="">
+            </td>
+        </tr>
+        <tr>
+                    <td colspan="2" align="right">
+                        <br/>
+                        
+                        <button type="button" id="btn-post" class="xoText" style="width:100px;" onclick="do_ajax();">Save</button>
+                        <button type="button" id="btn-post" class="xoText" style="width:100px;" onclick="/jsprofile">Cancel</button>
+					</td> 
+					
+         </tr>
+        </form>
+  </tbody>
+     </table>
+</p>
+
+
+</td></tr>
+<tr><td><img src="http://ostest.westchestergov.com/images/spacer.gif" alt="" border="0" height="20" width="1"></td></tr>
+
+</tbody>
+</table></div>
+    <div class="col-lg-2"  >
+<style>
+    .XOQuickLink{
+        color:#fff;
+    }
+</style>
+<br>
+<br>
+
+<div style="background-color: #91aed5; outline: #91aed5 solid 10px; padding:8px;">  
+<h4 style="color:#fff;">Quick Links</h4>
+<a href="/addresume" class="XOQuickLink" ><span> &raquo; </span>Post your resume</a><br>
+<a href="/profile_edit" class="XOQuickLink" ><span class="xoSmall"> &raquo; </span>Update Your Profile</a><br>
+<a href="/jobsearch" class="XOQuickLink" > <span>&raquo;</span> Search Jobs by Industry</a><br>
+<a href="" class="XOQuickLink" ><span> &raquo;</span> Workshops &amp; Training</a><br>
+
+<a href="" class="XOQuickLink" ><span> &raquo;</span> My Workshops</a><br>
+<a href="" class="XOQuickLink" ><span> &raquo;</span> Training Opportunities </a><br>
+<a href='' class="XOQuickLink" ><span> &raquo; </span>Links & Resources</a>   
+</div>
+<br>
+<br><div style="outline: #f6f7f9 solid 10px; padding:5px;">
+<form action="http://ostest.westchestergov.com/job-seeker/index.php?pid=5&user=Job Seeker" method="post">
+    <h4>Search</h4>
+     Enter Keywords:
+     <input type="text" style="width:125px;" class="xoText" name="q" value="">
+     Select Sector
+     <select style="width:120px;" class="xoText" name="s" >
+        <option value="0">All sectors</option>
+                        <option value="1" >Green</option>
+
+                         <option value="2" >Healthcare</option>
+
+                         <option value="3" >Hospitality</option>
+
+                         <option value="4" >Information Technology</option>
+
+                         <option value="5" >Biotech</option>
+
+                         <option value="6" >Not For Profit</option>
+
+                         <option value="7" >Advanced Manufacturing</option>
+
+                         <option value="8" >Other</option>
+
+         
+    </select><br><br>
+     <input type="submit" class="btn" value="Search Jobs" style="background-color: #91aed5;">
+</form>	
+</div>
+<br><br>
+
+<div style="outline: #91aed5; outline: #f6f7f9 solid 10px; padding:8px;">
+        <form action="http://ostest.westchestergov.com/login_action.php?user=" method="post">
+            <input type="hidden" name="redirect" value="">
+            <input type="hidden" name="authenticate" value="Job Seeker"> 
+            <h4>Job Seeker Login</h4> 
+             Email:
+                                        <input type="text" style="width:125px;" class="xoText" name="Email"/>
+        
+            Password:
+            <input type="password" style="width:125px;" class="xoText" name="Password"><br><br>
+            <input type="submit" class="btn" value="Login" style="background-color: #91aed5;"><br>
+             &raquo; <a class="xoLink" href="">Forgot password?</a><br>
+             &raquo; <a class="xoLink" href="/jsregister">Create account</a>
+            </form>
+
+    
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
