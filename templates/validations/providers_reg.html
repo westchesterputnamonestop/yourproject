@@ -1,0 +1,481 @@
+
+
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />  
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<title>Westchester Putnam One-Stop Training Provider</title>
+</head>
+<body>
+<div class="container" style="">
+<div class="row">
+<div class="col-lg-6" >
+<a href="/"><img src="https://www.westchesterputnamonestop.com/images/logo.png" width="370px" style="margin-left:-18px;padding-top:11px;padding-left:5px;"></a>
+</div>
+
+</div>
+<hr style="outline: #eeeeee solid thin;">
+<div class="row" >
+   <div class="col-lg-10">
+	<link type="text/css" href="/css/jquery-ui-1.8.16.custom.css" rel="stylesheet"  />
+<script type="text/javascript" src="/scripts/jquery-1.4.4.min.js"></script>
+<script src="/scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/scripts/jquery.1.6.validate.min.js"></script>
+<script src="/scripts/jquery.maskedinput.min.js" type="text/javascript"></script>
+
+<style type="text/css">
+ #register-form  label.error {
+    color: #FB3A3A;
+    display: inline-block;
+    margin: 4px 0 5px 5px;
+    padding: 0;
+    text-align: left;
+    }
+</style>
+
+<table class="xoText" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+    <tr>
+<td>
+<img width="1" height="20" border="0" alt="" src="http://ostest.westchestergov.com/images/spacer.gif">
+</td>
+</tr>
+<tr>
+<td>
+<div style="position:relative;">
+<p class="xoSmall">
+<a class="xoLink" href="/"> Home &raquo</a>
+<a class="xoLink" href="/providers/index.php?pid=">Training Providers &raquo</a>
+Create WPOS ETP Account
+</p>
+<div class="page-header">
+<h2>Register to be a Training Provider</h2>
+</div>
+<p>By providing us with the information below, you will gain access to the WPOS ETP account area. Once you have filled out the information, you will be able to provide course offerings that would be eligible for ITA funding. Your account will be reviewed and approved accordingly.</p>
+
+
+<p align="center">
+
+<p>&nbsp;</p>
+<table class="xoText" cellspacing="0" cellpadding="3" border="0">
+
+<tbody>
+<title>do_pro_register</title>
+            <script type="text/javascript">
+              function do_ajax() {
+                var req = new XMLHttpRequest();
+                var result = document.getElementById('result');
+                req.onreadystatechange = function()
+                { 
+                  if(this.readyState == 4 && this.status == 200) {
+                    result.innerHTML = "processing...";
+					if(req.responseText.startsWith('{'))
+                    {
+                        res = JSON.parse(req.responseText)
+                        if(res.errormsg)
+                        {
+                            if(res.ProviderName)
+                            {
+                                document.getElementById("ProviderNameerror").innerHTML = res.ProviderName;
+                            }
+                            else{
+                                document.getElementById("ProviderNameerror").innerHTML = '';
+                            }
+							if(res.Address)
+                            {
+                                document.getElementById("Addresserror").innerHTML = res.Address;
+                            }
+                            else{
+                                document.getElementById("Addresserror").innerHTML = '';
+                            }
+							 if(res.city)
+                           {
+                                document.getElementById("cityerror").innerHTML = res.city;
+                           }
+                           else{
+                               document.getElementById("cityerror").innerHTML = '';
+                           }
+						   if(res.state)
+                       {
+                           document.getElementById("stateerror").innerHTML = res.state;
+                       }
+                       else{
+                           document.getElementById("stateerror").innerHTML = '';
+                       }
+                      if(res.zip)
+                       {
+                           document.getElementById("ziperror").innerHTML = res.zip;
+                       }
+                       else{
+                           document.getElementById("ziperror").innerHTML = '';
+                       }
+                      if(res.phone)
+                       {
+                           document.getElementById("phoneerror").innerHTML = res.phone;
+                       }
+                       else{
+                           document.getElementById("phoneerror").innerHTML = '';
+                       }
+					   if(res.website)
+                       {
+                       document.getElementById("websiteerror").innerHTML = res.website;
+                       }
+                       else
+                       {
+                           document.getElementById("websiteerror").innerHTML = '';
+                       }
+					   if(res.BusinessName)
+                       {
+                       document.getElementById("BusinessNameerror").innerHTML = res.BusinessName;
+                       }
+                       else
+                       {
+                           document.getElementById("BusinessNameerror").innerHTML = '';
+                       }
+					   if(res.CorporateName)
+                       {
+                       document.getElementById("CorporateNameerror").innerHTML = res.CorporateName;
+                       }
+                       else
+                       {
+                           document.getElementById("CorporateNameerror").innerHTML = '';
+                       }
+					   if(res.einnumber)
+                       {
+                           document.getElementById("einnumbererror").innerHTML = res.einnumber;
+                       }
+                       else
+                       {
+                           document.getElementById("einnumbererror").innerHTML ='';
+                       }
+					   if(res.firstname)
+                       {
+                           document.getElementById("firstnameerror").innerHTML = res.firstname;
+                       }
+                       else{
+                           document.getElementById("firstnameerror").innerHTML = '';
+                       }
+                       
+                       if(res.lastname)
+                       {
+                           document.getElementById("lastnameerror").innerHTML = res.lastname;
+                       }
+                       else{
+                           document.getElementById("lastnameerror").innerHTML = '';
+                       }
+					   
+					    if(res.email)
+                       {
+                       document.getElementById("emailerror").innerHTML = res.email;
+                       }
+                       else
+                       {
+                           document.getElementById("emailerror").innerHTML = '';
+                       }
+					   
+                           if(res.password)
+                            {
+                                document.getElementById("passworderror").innerHTML = res.password;
+                            }
+                            else{
+                                document.getElementById("passworderror").innerHTML = '';
+                            }
+							if(res.ConfirmPassword)
+                            {
+                                document.getElementById("ConfirmPassworderror").innerHTML = res.ConfirmPassword;
+                            }
+                            else{
+                                document.getElementById("ConfirmPassworderror").innerHTML = '';
+                            }
+                        }			              
+                    }
+                    else if(req.responseText.startsWith('Invalid'))
+                    {
+                        result.innerHTML = req.responseText ;
+                    }	
+                    else
+                        window.location = req.responseURL;
+                  } else {
+                    result.innerHTML = "waiting...";
+			  	     }
+                }
+                req.open('POST', '/pro_register' , true);
+                req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                    var data = "portal="+ document.getElementById('portal').value + "&"+ 
+					"profile_id="+ document.getElementById('profile_id').value + "&"+ 
+					"ProviderName="+ document.getElementById('ProviderName').value + "&"+
+					"Address="+ document.getElementById('Address').value + "&"+ 
+					"City="+ document.getElementById('City').value + "&"+ 
+					"State="+ document.getElementById('State').value + "&"+ 
+					"Zip="+ document.getElementById('Zip').value + "&"+ 
+					"Phone="+ document.getElementById('Phone').value + "&"+ 
+					"Website="+ document.getElementById('Website').value + "&"+ 
+					"BusinessName="+ document.getElementById('BusinessName').value + "&"+ 
+					"CorporateName="+ document.getElementById('CorporateName').value + "&"+ 
+					"IDType="+ document.getElementById('IDType').value + "&"+ 
+					"IDValue="+ document.getElementById('IDValue').value + "&"+ 
+					"HaveLicense="+ document.getElementById('HaveLicense').value + "&"+ 
+					"HaveLicense="+ document.getElementById('HaveLicense').value + "&"+ 
+					"StateExempt="+ document.getElementById('StateExempt').value + "&"+ 
+					"FirstName="+ document.getElementById('FirstName').value + "&"+ 
+					"LastName="+ document.getElementById('LastName').value + "&"+ 
+					"Email="+ document.getElementById('Email').value + "&"+ 
+					"DesiredPassword="+ document.getElementById('DesiredPassword').value + "&"+ 
+					"ConfirmPassword="+ document.getElementById('ConfirmPassword').value ;
+                    req.send(data);
+              }
+            </script>
+			<form>
+<input type="hidden" name="portal" value="Provider">
+<input type="hidden" name="profile_id" value="" />
+<tr>
+<td colspan="2">
+<b>School Information</b>
+</td>
+</tr>
+<tr>
+<td width="116">School name*</td>
+<td width="890">
+<input id="ProviderName" type="text" style="width:360;" name="ProviderName">
+<span style="color:red" id="providernameerror"></span><br/>
+</td>
+</tr>
+<tr>
+<td>School address*</td>
+<td>
+<input  type="text" style="width:360px;" name="Address" id="Address" >
+<span style="color:red" id="addresserror"></span><br/>
+</td>
+</tr>
+<tr>
+<td>City*</td>
+<td>
+<input  type="text" style="width:360px;" name="City" id="City" />
+<span style="color:red" id="cityerror"></span><br/>
+</td>
+</tr>
+<tr>
+<td>State* </td>
+<td>
+<select  style="width:360;" name="State" id="State">
+<option>New York</option>
+<span style="color:red" id="stateerror"></span><br/>
+</select>
+</td>
+</tr>
+<tr>
+<td>Zip* </td>
+<td>
+<input  type="text" style="width:360;" name="Zip" id="Zip" maxlength="5">
+<span style="color:red" id="ziperror"></span><br/>
+</td>
+</tr>
+<tr>
+<td>Phone*</td>
+<td>
+<input type="text" style="width:360;" name="Phone" id="Phone">
+<span style="color:red" id="phoneerror"></span><br/>
+</td>
+</tr>
+<tr>
+<td>Website</td>
+<td>
+<input  type="text" style="width:360;" name="Website" id="Website">
+<span style="color:red" id="websiteerror"></span><br/>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<b>
+<br>
+Business Information
+</b>
+</td>
+</tr>
+<tr>
+<td valign="top">Business name*</td>
+<td>
+<input id="BusinessName"  type="text" style="width:360;" name="BusinessName" >
+<span style="color:red" id="bussinessnameerror"></span><br/>
+<span class="xoSmall">
+(
+<a class="xoLink" onclick="document.getElementById('BusinessName').value=document.getElementById('ProviderName').value;" style="cursor:pointer;">Copy from School name</a>
+)
+</span>
+</td>
+</tr>
+
+<tr>
+<td>Corporate name as per W9*</td>
+<td>
+<!--<select class="xoText" style="width:100;height:22;" name="IDType" id="IDType" >
+<option value="EIN">EIN</option>
+<option value="SSN">SSN</option>
+</select>
+    <input class="xoText" value="CorporateName" style="width:260;height:22;" name="CorporateName">
+-->
+    <input id="CorporateName"  type="text" style="width:360;" name="CorporateName" >
+	<span style="color:red" id="corporatenameerror"></span><br/>
+</td>
+</tr>
+
+<tr>
+<td>EIN Number*</td>
+<td>
+<!--<select class="xoText" style="width:100;height:22;" name="IDType" id="IDType" >
+<option value="EIN">EIN</option>
+<option value="SSN">SSN</option>
+</select>-->
+<input class="xoText" type="hidden" value="EIN" style="width:260;height:22;" name="IDType">
+<input id="einnumber" type="text" style="width:260;height:22;" name="IDValue">
+<span style="color:red" id="einnumbererror"></span><br/>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+Does your Training Provider Organization have a license?
+<input type="radio" value="1" name="HaveLicense" id="HaveLicense" >
+Yes
+<input type="radio" checked="" value="0" name="HaveLicense" id="HaveLicense" >
+No
+</td>
+</tr>
+<tr>
+<td colspan="2">
+Do you have an exemption under state education law 5001(2)?
+<input type="radio" value="1" name="StateExempt" id="StateExempt" >
+Yes
+<input type="radio" checked="" value="0" name="StateExempt" id="StateExempt" >
+No
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<b>
+<br>
+Account Information
+</b>
+</td>
+</tr>
+<tr>
+<td>First name*</td>
+<td>
+<input  type="text" style="width:360;" name="FirstName">
+<span style="color:red" id="firstnameerror"></span><br/>
+</td>
+</tr>
+<tr>
+<td>Last name*</td>
+<td>
+<input  type="text" style="width:360;" name="LastName">
+<span style="color:red" id="lastnameerror"></span><br/>
+</td>
+</tr>
+<tr>
+<td>Email*</td>
+<td>
+<input  type="text" style="width:360;" name="Email">
+<span style="color:red" id="emailerror"></span><br/>
+</td>
+</tr>
+<tr>
+<td>Desired password*</td>
+<td>
+<input  type="password" style="width:360;" name="DesiredPassword" id="DesiredPassword">
+<span style="color:red" id="passworderror"></span><br/>
+</td>
+</tr>
+<tr>
+<td>Confirm password*</td>
+<td>
+<input  type="password" style="width:360;" name="ConfirmPassword" id="ConfirmPassword">
+<span style="color:red" id="confirmpassworderror"></span><br/>
+</td>
+</tr>
+<tr>
+<td align="right" colspan="2">
+<br>
+<button type="submit" id="btn-post" onclick="do_ajax();">Create Your WPOS ETP account</button>
+<div id="result"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<img width="1" height="20" border="0" alt="" src="http://ostest.westchestergov.com/images/spacer.gif">
+</td>
+</tr>
+</tbody>
+</table>
+		 
+</div>			
+<div class="col-lg-2"  >
+<style>
+    .XOQuickLink{
+        color:#fff;
+    }    
+</style>
+<div style="background-color: #C8C8C8; outline: #C8C8C8 solid 10px; padding:8px;">
+<h4 style="color: #fff;">QUICK LINKS</h4>
+<a class="XOQuickLink" href="/about "><span class="xoSmall">&raquo;</span> What Is One-Stop?</a><br>
+<a class="XOQuickLink" href="/login_form.php?user=Job Seeker&&redirect=/upload_resume/upload.php?id=a "><span class="xoSmall">&raquo;</span> Post a Resume</a><br>
+<a class="XOQuickLink" href="/login_form.php?user=Employer "><span class="xoSmall">&raquo;</span> Post a Job</a><br>
+<a class="XOQuickLink" href="/workshop/"><span class="xoSmall">&raquo;</span> Workshops & Training</a><br>
+<a class="XOQuickLink" href="/index.php/about/links-resources"><span class="xoSmall">&raquo;</span> Links & Resources</a><br>
+<!--<a class="XOQuickLink" href="/index.php/about/faqs "><span class="xoSmall">&raquo;</span> FAQ's </a><br>-->
+<a class="XOQuickLink" href="/index.php/about/contact-us "><span class="xoSmall">&raquo;</span> Contact Us </a>              
+</div>
+<br>
+<br> <div style="outline: #f6f7f9 solid 10px; padding:5px;">
+<form action="/job-seeker/index.php?pid=5&user=Job Seeker" method="post">
+    <h4>Search</h4>
+     Enter Keywords:
+     <input type="text" style="width:125px;" class="xoText" name="q" value="">
+     Select Sector
+     <select style="width:120px;" class="xoText" name="s" >
+        <option value="0">All sectors</option>
+                        <option value="1" >Green</option>
+
+                         <option value="2" >Healthcare</option>
+
+                         <option value="3" >Hospitality</option>
+
+                         <option value="4" >Information Technology</option>
+
+                         <option value="5" >Biotech</option>
+
+                         <option value="6" >Not For Profit</option>
+
+                         <option value="7" >Advanced Manufacturing</option>
+
+                         <option value="8" >Other</option>
+
+         
+    </select><br><br>
+     <input type="submit" class="btn" value="Search Jobs" style="background-color: #91aed5;">
+</form>	
+</div>
+<br><br></div> 
+</div>
+</div>
+</body>
+</html>
+
+
+
+
+
